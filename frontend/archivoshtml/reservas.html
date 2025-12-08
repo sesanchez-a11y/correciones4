@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>EduMentor - Docentes</title>
+    <!-- Bootstrap (opcional, si lo usas) -->
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> 
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> 
+ 
+    <link rel="stylesheet" href="../archivoscss/reservas.css" />
+</head>
+<body>
+
+    <!-- Barra superior negra -->
+    <div class="top-bar bg-dark text-white py-2 text-center">
+        <span>Contact us: 📞 +593 98 541 2458</span>
+        <span>✉️ capacitacion@tutorias.ec</span>
+        <span>🎓 Mas de 15.000 Profesionales Certificados</span>
+    </div>
+
+    <!-- Barra de navegación amarilla -->
+    <div class="nav-bar">
+        <div class="logo-section">
+            <div class="logo">
+                <img src="../img/logo.png" alt="Logo EduMentor" />
+                EduMentor
+            </div>
+            <div class="nav-tutor-label">
+                <img src="../img/logo.png" alt="Icono Tutoria">
+                TUTORÍA
+            </div>
+        </div>
+        
+        <div class="nav-links">
+            <a href="inicio.html">INICIO</a>
+            <a href="#" class="active">Docentes</a>
+            <a href="perfil.html">Perfil</a>
+            <a href="#">Cerrar Sesión</a>
+        </div>
+        <div class="avatar">DN</div>
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="main-container">
+
+        <!-- Filtros -->
+        <div class="filter-section">
+            <div class="filter-row">
+                <label for="quiero-aprender" class="label">Quiero aprender</label>
+                <select id="quiero-aprender">
+                    <option value="programacion">Programacion</option>
+                    <option value="matematicas">Matemáticas</option>
+                </select>
+
+                <label for="precio-clase" class="label">Precio de la clase</label>
+                <select id="precio-clase">
+                    <option value="3-40">$3-40</option>
+                    <option value="40-80">$40-80</option>
+                </select>
+
+                <label for="pais-nacimiento" class="label">País de nacimiento</label>
+                <select id="pais-nacimiento">
+                    <option value="cualquier">Cualquier país</option>
+                    <option value="ecuador">Ecuador</option>
+                </select>
+
+                <label for="disponibilidad" class="label">Disponibilidad</label>
+                <select id="disponibilidad">
+                    <option value="cualquier-hora">Cualquier hora</option>
+                    <option value="mañana">Mañana</option>
+                </select>
+            </div>
+            <div class="filter-row">
+                <label for="especialidades" class="label">Especialidades</label>
+                <select id="especialidades">
+                    <option value="todas">Todas</option>
+                </select>
+
+                <label for="idioma-profesor" class="label">El profesor habla</label>
+                <select id="idioma-profesor">
+                    <option value="nativo">Nativo</option>
+                    <option value="bilingue">Bilingüe</option>
+                </select>
+
+                <label for="categorias" class="label">Categorías del pr...</label>
+                <select id="categorias">
+                    <option value="todas">Todas</option>
+                </select>
+
+                <label for="ordenar-por" class="label">Ordenar por:</label>
+                <select id="ordenar-por">
+                    <option value="destacados">Nuestros dest...</option>
+                </select>
+                
+                <input type="text" placeholder="Buscar por nombre o palabra..." />
+            </div>
+        </div>
+
+        <!-- Título -->
+        <h2 class="available-teachers-title">+500 profesores de Programacion disponibles</h2>
+
+        <!-- Tarjeta del profesor y video -->
+        <div class="teacher-content-area">
+            <!-- Tarjeta del profesor -->
+            <div class="teacher-card">
+                <img src="../img/profesor.png" alt="Avatar de Luis M." class="teacher-avatar-large" />
+                <div class="teacher-details">
+                    <div class="teacher-name-flag">
+                        <h3>Luis.M</h3>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Flag_of_Ecuador.svg" alt="Bandera de Ecuador" class="flag" />
+                    </div>
+                    <p class="teacher-language">Español</p>
+                    <div class="teacher-stats">
+                        <span>20 Estudiantes Activos</span>
+                        <span>210 clases</span>
+                    </div>
+                    <div class="teacher-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="reviews">120 reseñas</span>
+                    </div>
+                    <p class="teacher-bio">Habla: Inglés (Avanzado), Francés (Intermedio) Un docente certificado con experiencia en enseñanza internacional te asiste para superar tu examen y mejorar tu nivel de diálogo en inglés e italiano. ... ¡Hola estudiantes!</p>
+                    <a href="#" class="read-more">Leer mas...</a>
+                </div>
+                <div class="teacher-actions">
+                    <div class="price-container">
+                        <span class="price-text">16$</span>
+                        <span class="per-hour-text">la Hora</span>
+                    </div>
+                    <button class="reserve-button">Puedes Reservar una clase aquí</button>
+                    <button class="view-schedule-button">Ver Horarios</button>
+                </div>
+            </div>
+
+            <!-- Reproductor de video y botón de mensaje -->
+            <div class="video-and-message">
+                <div class="video-player">
+                    <img src="../img/profesor.png" alt="Miniatura de video de Luis M." />
+                    <div class="play-button"></div>
+                </div>
+                <button class="send-message-button">Mandar mensaje</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Icono WhatsApp fijo -->
+    <a href="#" class="whatsapp-icon">
+        <img src="https://img.icons8.com/material-rounded/48/ffffff/whatsapp--v1.png" alt="WhatsApp Icon" />
+    </a>
+
+    <!-- Bootstrap JS (opcional) -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> -->
+    <!-- Tu JS personalizado -->
+    <script src="reservas.js"></script>
+</body>
+</html>

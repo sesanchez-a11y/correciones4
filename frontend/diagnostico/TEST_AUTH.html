@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Auth Flow</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #f5f5f5; padding: 2rem; }
+        .card { box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .output { font-family: monospace; max-height: 300px; overflow-y: auto; background: #f9f9f9; border: 1px solid #ddd; border-radius: 4px; padding: 10px; }
+        .success { color: #28a745; font-weight: bold; }
+        .error { color: #dc3545; font-weight: bold; }
+        .warning { color: #ff6b6b; font-weight: bold; }
+        .info { color: #17a2b8; }
+        .step-box { background: #f0f8ff; border-left: 4px solid #0066cc; padding: 15px; margin-bottom: 15px; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <h1 class="mb-4 text-center">🧪 Test Completo del Flujo de Autenticación</h1>
+                
+                <!-- PASO 1: REGISTRO -->
+                <div class="step-box">
+                    <h4>📝 PASO 1: Crear nuevo usuario (Registro)</h4>
+                    <div class="row g-2">
+                        <div class="col-md-3">
+                            <input type="text" id="regNombre" class="form-control form-control-sm" placeholder="Nombre" value="TestUser">
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" id="regApellido" class="form-control form-control-sm" placeholder="Apellido" value="Test">
+                        </div>
+                        <div class="col-md-4">
+                            <input type="email" id="regEmail" class="form-control form-control-sm" placeholder="Email" value="testuser123@example.com">
+                        </div>
+                        <div class="col-md-2">
+                            <button class="btn btn-primary btn-sm w-100" id="registerBtn">Registrar</button>
+                        </div>
+                    </div>
+                    <div class="row g-2 mt-2">
+                        <div class="col-md-3">
+                            <input type="number" id="regEdad" class="form-control form-control-sm" placeholder="Edad" value="25">
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" id="regEspec" class="form-control form-control-sm" placeholder="Especialización" value="Desarrollo Web">
+                        </div>
+                        <div class="col-md-5">
+                            <input type="password" id="regPassword" class="form-control form-control-sm" placeholder="Contraseña" value="Test@123">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PASO 2: LOGIN MANUAL -->
+                <div class="step-box">
+                    <h4>🔐 PASO 2: Iniciar sesión (Login)</h4>
+                    <div class="row g-2">
+                        <div class="col-md-5">
+                            <input type="email" id="loginEmail" class="form-control form-control-sm" placeholder="Email" value="testuser123@example.com">
+                        </div>
+                        <div class="col-md-4">
+                            <input type="password" id="loginPassword" class="form-control form-control-sm" placeholder="Contraseña" value="Test@123">
+                        </div>
+                        <div class="col-md-3">
+                            <button class="btn btn-success btn-sm w-100" id="loginBtn">Login</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PASO 3: VERIFICAR TOKEN -->
+                <div class="step-box">
+                    <h4>🔍 PASO 3: Verificar Token y Datos</h4>
+                    <div class="row g-2">
+                        <div class="col-md-3">
+                            <button class="btn btn-info btn-sm w-100" id="checkStorageBtn">Revisar localStorage</button>
+                        </div>
+                        <div class="col-md-3">
+                            <button class="btn btn-warning btn-sm w-100" id="testMeBtn">Probar /me endpoint</button>
+                        </div>
+                        <div class="col-md-3">
+                            <button class="btn btn-danger btn-sm w-100" id="logoutTestBtn">Probar Logout</button>
+                        </div>
+                        <div class="col-md-3">
+                            <button class="btn btn-secondary btn-sm w-100" id="clearStorageBtn">Limpiar Todo</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PASO 4: IR A PERFIL -->
+                <div class="step-box" style="background: #fffacd; border-left: 4px solid #ffc107;">
+                    <h4>✅ PASO 4: Ir a tu Perfil</h4>
+                    <p class="mb-2"><strong>Si los pasos anteriores tienen ✓ verde, haz clic aquí:</strong></p>
+                    <button class="btn btn-success btn-lg w-100" id="goPerfilBtn">
+                        ➜ Ir a PERFIL.HTML
+                    </button>
+                </div>
+
+                <!-- CONSOLA -->
+                <div class="card">
+                    <div class="card-header bg-dark text-white">
+                        <h5 class="mb-0">📋 Consola de Salida</h5>
+                    </div>
+                    <div class="card-body output" id="outputDiv">
+                        <p class="text-muted">Los eventos aparecerán aquí...</p>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-sm btn-secondary" id="clearOutput">Limpiar Consola</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE = 'http://localhost:5000/api';
+        const outputDiv = document.getElementById('outputDiv');
+
+        function log(message, type = 'info') {
+            const timestamp = new Date().toLocaleTimeString('es-ES');
+            const className = type;
+            const p = document.createElement('p');
+            p.className = `mb-1 ${className}`;
+            p.innerHTML = `<strong>[${timestamp}]</strong> ${message}`;
+            outputDiv.appendChild(p);
+            outputDiv.scrollTop = outputDiv.scrollHeight;
+        }
+
+        // REGISTRO
+        document.getElementById('registerBtn').addEventListener('click', async () => {
+            const nombre = document.getElementById('regNombre').value;
+            const apellido = document.getElementById('regApellido').value;
+            const email = document.getElementById('regEmail').value;
+            const edad = document.getElementById('regEdad').value;
+            const especializacion = document.getElementById('regEspec').value;
+            const password = document.getElementById('regPassword').value;
+
+            if (!nombre || !apellido || !email || !edad || !especializacion || !password) {
+                log('❌ Todos los campos de registro son requeridos', 'error');
+                return;
+            }
+
+            log(`📝 Registrando nuevo usuario: ${email}`, 'info');
+
+            try {
+                const resp = await fetch(`${API_BASE}/ControladorDeSesion/register`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        nombre, apellido, email, edad: parseInt(edad), especializacion,
+                        contrasena: password, rol: 'Alumno'
+                    })
+                });
+
+                const data = await resp.json();
+
+                if (resp.ok) {
+                    log(`✓ Registro exitoso`, 'success');
+                    localStorage.setItem('currentUser', JSON.stringify(data.user));
+                    
+                    // Auto-login
+                    log(`🔐 Auto-login en progreso...`, 'info');
+                    const loginResp = await fetch(`${API_BASE}/ControladorDeSesion/login`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ Email: email, Password: password })
+                    });
+
+                    const loginData = await loginResp.json();
+                    if (loginResp.ok && loginData.token) {
+                        localStorage.setItem('token', loginData.token);
+                        log(`✓ Token JWT guardado`, 'success');
+                        log(`✓ Usuario listo. Ahora puedes ir a Perfil.`, 'success');
+                    } else {
+                        log(`⚠️ Auto-login falló, pero el usuario está registrado`, 'warning');
+                    }
+                } else {
+                    log(`✗ Registro falló: ${data.message}`, 'error');
+                }
+            } catch (error) {
+                log(`❌ Error: ${error.message}`, 'error');
+            }
+        });
+
+        // LOGIN
+        document.getElementById('loginBtn').addEventListener('click', async () => {
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+
+            if (!email || !password) {
+                log('❌ Email y contraseña son requeridos', 'error');
+                return;
+            }
+
+            log(`🔐 Iniciando login para: ${email}`, 'info');
+
+            try {
+                const resp = await fetch(`${API_BASE}/ControladorDeSesion/login`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ Email: email, Password: password })
+                });
+
+                const data = await resp.json();
+
+                if (resp.ok && data.token) {
+                    localStorage.setItem('token', data.token);
+                    localStorage.setItem('currentUser', JSON.stringify(data.user));
+                    log(`✓ Login exitoso`, 'success');
+                    log(`✓ Token JWT guardado`, 'success');
+                    log(`✓ Usuario: ${data.user.nombre} ${data.user.apellido}`, 'success');
+                } else {
+                    log(`✗ Login falló: ${data.message}`, 'error');
+                }
+            } catch (error) {
+                log(`❌ Error de conexión: ${error.message}`, 'error');
+            }
+        });
+
+        // REVISAR STORAGE
+        document.getElementById('checkStorageBtn').addEventListener('click', () => {
+            const token = localStorage.getItem('token');
+            const currentUser = localStorage.getItem('currentUser');
+
+            log('=== REVISANDO localStorage ===', 'info');
+
+            if (token) {
+                log(`✓ Token existe (${token.substring(0, 20)}...)`, 'success');
+            } else {
+                log('✗ Token NO existe - Primero haz login', 'error');
+            }
+
+            if (currentUser) {
+                try {
+                    const user = JSON.parse(currentUser);
+                    log(`✓ Usuario: ${user.nombre} ${user.apellido}`, 'success');
+                    log(`   Email: ${user.correo}`, 'info');
+                    log(`   Rol: ${user.rol}`, 'info');
+                } catch (e) {
+                    log('✗ currentUser corrupted', 'error');
+                }
+            } else {
+                log('✗ Usuario NO existe', 'error');
+            }
+        });
+
+        // PROBAR /ME
+        document.getElementById('testMeBtn').addEventListener('click', async () => {
+            const token = localStorage.getItem('token');
+
+            if (!token) {
+                log('❌ No hay token. Primero haz login.', 'error');
+                return;
+            }
+
+            log(`📡 Probando /me endpoint...`, 'info');
+
+            try {
+                const resp = await fetch(`${API_BASE}/ControladorDeSesion/me`, {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                if (resp.ok) {
+                    const data = await resp.json();
+                    log(`✓ /me respondió correctamente`, 'success');
+                    log(`   ${data.nombre} ${data.apellido} (${data.correo})`, 'success');
+                } else if (resp.status === 401) {
+                    log(`✗ Token inválido (401)`, 'error');
+                    localStorage.removeItem('token');
+                } else {
+                    log(`✗ Error ${resp.status}`, 'error');
+                }
+            } catch (error) {
+                log(`❌ Error de conexión: ${error.message}`, 'error');
+            }
+        });
+
+        // LIMPIAR
+        document.getElementById('clearStorageBtn').addEventListener('click', () => {
+            localStorage.clear();
+            log('🗑️ localStorage completamente limpiado', 'warning');
+        });
+
+        document.getElementById('clearOutput').addEventListener('click', () => {
+            outputDiv.innerHTML = '<p class="text-muted">Consola limpiada...</p>';
+        });
+
+        // PROBAR LOGOUT
+        document.getElementById('logoutTestBtn').addEventListener('click', () => {
+            const token = localStorage.getItem('token');
+            const currentUser = localStorage.getItem('currentUser');
+
+            if (!token && !currentUser) {
+                log('⚠️ No hay sesión activa para cerrar', 'warning');
+                return;
+            }
+
+            const confirm_logout = confirm('¿Deseas cerrar sesión?');
+            if (confirm_logout) {
+                localStorage.removeItem('token');
+                localStorage.removeItem('currentUser');
+                log('✓ Sesión cerrada correctamente', 'success');
+                log('   localStorage limpiado', 'success');
+            } else {
+                log('❌ Logout cancelado por el usuario', 'warning');
+            }
+        });
+
+        // IR A PERFIL
+        document.getElementById('goPerfilBtn').addEventListener('click', () => {
+            const token = localStorage.getItem('token');
+            const currentUser = localStorage.getItem('currentUser');
+
+            if (!token && !currentUser) {
+                log('❌ No hay sesión. Primero completa los pasos 1-3.', 'error');
+                return;
+            }
+
+            log('🚀 Redirigiendo a perfil.html...', 'info');
+            window.location.href = 'archivoshtml/perfil.html';
+        });
+
+        log('✓ Página de test cargada', 'success');
+        log('Sigue los pasos: 1→Registrar 2→Login 3→Verificar 4→Ir a Perfil', 'info');
+    </script>
+</body>
+</html>

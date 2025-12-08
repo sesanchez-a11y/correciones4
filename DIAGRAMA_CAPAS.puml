@@ -1,0 +1,192 @@
+@startuml EduMentor_Arquitectura_Capas
+title EduMentor - Arquitectura de Capas
+
+package "🖥️ CAPA DE PRESENTACIÓN (Frontend)" <<cloud>> {
+    component "HTML5" as HTML {
+        [inicio.html]
+        [perfil.html]
+        [cursos.html]
+        [reservas.html]
+        [pagos.html]
+        [historial.html]
+        [tienda.html]
+    }
+    
+    component "CSS3" as CSS {
+        [inicio.css]
+        [perfil.css]
+        [cursos.css]
+        [reservas.css]
+        [pagos.css]
+    }
+    
+    component "JavaScript Vanilla" as JS {
+        [inicio.js]
+        [perfil.js]
+        [iniciodecesion.js]
+        [reseccion.js]
+        [cursos.js]
+        [historial.js]
+        [pagos.js]
+    }
+    
+    component "Bootstrap 5" as BOOTSTRAP {
+        [Componentes UI]
+    }
+    
+    component "Tailwind CSS" as TAILWIND {
+        [Estilos Utilities]
+    }
+}
+
+package "🌐 CAPA DE API (ASP.NET Core 9.0)" <<cloud>> {
+    component "Controllers" {
+        [ControladorDeSesion]
+        [ReservasController]
+        [DebugController]
+    }
+    
+    component "Middleware" {
+        [JWT Authentication]
+        [CORS]
+    }
+    
+    component "Servicios" {
+        [Autenticación]
+        [Notificaciones]
+        [Procesamiento de Pagos]
+    }
+}
+
+package "📊 CAPA DE MODELOS Y LÓGICA" <<cloud>> {
+    component "Modelos de Dominio" {
+        [Usuario (base)]
+        [Estudiante]
+        [Tutor]
+        [Servicio]
+        [Reserva]
+        [Pago]
+        [Notificacion]
+    }
+    
+    component "Interfaces" {
+        [IUsuarioRepository]
+        [INotificacion]
+        [IPago]
+        [IPrecioStrategy]
+    }
+    
+    component "Patrones" {
+        [Repository Pattern]
+        [Observer Pattern]
+        [Strategy Pattern]
+        [Factory Pattern]
+    }
+}
+
+package "💾 CAPA DE DATOS" <<database>> {
+    component "Repositorios" {
+        [InMemoryUsuarioRepository\n(Desarrollo)]
+        [MongoUsuarioRepository\n(Producción)]
+    }
+    
+    component "MongoDB" as MONGODB {
+        database "EduMentor" {
+            [Colección: Usuarios]
+            [Colección: Reservas]
+            [Colección: Pagos]
+            [Colección: Servicios]
+        }
+    }
+}
+
+package "🔐 SEGURIDAD" <<cloud>> {
+    component "Autenticación" {
+        [BCrypt (Hash)]
+        [JWT (Tokens)]
+        [[Authorize] Atributo]
+    }
+    
+    component "Validación" {
+        [Entrada]
+        [Email]
+        [Contraseña]
+    }
+}
+
+' Relaciones entre capas
+
+HTML --> JS: Activa
+JS --> CSS: Aplica estilos
+HTML --> CSS: Aplica estilos
+JS --> BOOTSTRAP: Utiliza
+BOOTSTRAP --> BOOTSTRAP: Componentes
+JS --> TAILWIND: Utiliza
+
+JS --> JWT: Envía token en\nHeader Authorization
+JS --> Middleware: Realiza peticiones AJAX
+
+Middleware --> Controllers: Enruta solicitudes
+
+Controllers --> IUsuarioRepository: Utiliza (Inyección DI)
+Controllers --> Servicios: Ejecuta lógica
+
+Servicios --> "Modelos de Dominio": Procesa
+"Modelos de Dominio" --> Patrones: Implementa
+
+IUsuarioRepository --> Repositorios: Define contrato
+
+Repositorios --> MONGODB: Lee/Escribe datos
+
+Autenticación --> Repositorios: Valida credenciales
+Validación --> Controllers: Valida entrada
+
+' Notas
+
+note right of HTML
+  **Responsabilidad**:
+  - Estructura de página
+  - Elementos interactivos
+  - Navegación
+end note
+
+note right of JS
+  **Responsabilidad**:
+  - Lógica de cliente
+  - Comunicación con API
+  - Manejo de almacenamiento local
+  - Validación en cliente
+end note
+
+note right of Controllers
+  **Responsabilidad**:
+  - Recibir peticiones HTTP
+  - Procesar solicitudes
+  - Coordinar servicios
+  - Retornar respuestas
+end note
+
+note right of "Modelos de Dominio"
+  **Responsabilidad**:
+  - Representar conceptos del negocio
+  - Almacenamiento BSON en MongoDB
+  - Lógica de dominio
+end note
+
+note right of Repositorios
+  **Responsabilidad**:
+  - Abstracción de acceso a datos
+  - CRUD operations
+  - Queries a MongoDB
+  - In-Memory para testing
+end note
+
+note right of MONGODB
+  **Características**:
+  - NoSQL Document DB
+  - Almacenamiento flexible
+  - Consultas en JSON
+  - Replicación nativa
+end note
+
+@enduml

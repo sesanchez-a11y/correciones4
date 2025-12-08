@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>EduMentor - Confirmar Compra</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome para íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="styles-confirmacion.css" />
+</head>
+<body>
+
+    <!-- Barra superior negra -->
+    <div class="top-bar bg-dark text-white py-2 text-center">
+        <span>Contact us: 📞 +593 98 541 2458</span>
+        <span>✉️ capacitacion@tutorias.ec</span>
+        <span>🎓 Mas de 15.000 Profesionales Certificados</span>
+    </div>
+
+    <!-- Barra de navegación amarilla -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-warning px-4">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="inicio.html">
+                <img src="../img/logo.png" alt="Logo EduMentor" width="64" height="46" class="me-2">
+                EduMentor
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Tienda</a>
+                    </li>
+                      <!-- Menú desplegable "Perfil" -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="perfilDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Perfil
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="perfilDropdown">
+                            <li><a class="dropdown-item" href="perfil.html">Mi perfil</a></li>
+                            <li><a class="dropdown-item" href="miscursos.html">Mis cursos</a></li>
+                            <li><a class="dropdown-item" href="#">Configuración</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Cerrar sesión</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Ayuda</a>
+                    </li>
+                    <!-- Icono de carrito -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="fas fa-shopping-cart fa-lg"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido principal -->
+    <div class="container my-4">
+
+        <div class="row g-4">
+            <!-- Columna izquierda: Información del curso y pago -->
+            <div class="col-md-6">
+                <h5 class="mb-3">Curso de Programación orientada a objetos:</h5>
+
+                <!-- Imagen del curso -->
+                <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=800&fit=max" alt="Programación orientada a objetos" class="img-fluid mb-3" style="border-radius: 8px;">
+
+                <!-- Detalles del pago -->
+                <div class="mb-3">
+                    <strong>Tipo de pago:</strong><br>
+                    Paypal
+                </div>
+
+                <div class="mb-3">
+                    <strong>Número de cuenta:</strong><br>
+                    872745894357
+                </div>
+
+                <div class="mb-3">
+                    <strong>País/Dirección:</strong><br>
+                    Ecuador/Guayaquil<br>
+                    últimos seremos los primeros
+                </div>
+            </div>
+
+            <!-- Columna derecha: Resumen del pedido -->
+            <div class="col-md-6">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h4 class="mb-4">Resumen del pedido</h4>
+
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>Precio Original</span>
+                            <span>59.99 US$</span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-4">
+                            <span>Precio Original</span>
+                            <span>-49.00 US$</span>
+                        </div>
+
+                        <hr>
+
+                        <div class="d-flex justify-content-between mb-4">
+                            <strong>Total (1 Curso)</strong>
+                            <strong>10.99 US$</strong>
+                        </div>
+
+                        <!-- Botones -->
+                        <button class="btn btn-warning w-100 mb-3">Desea continuar la compra</button>
+                        <button class="btn btn-outline-secondary w-100 mb-3">Cancelar la compra</button>
+
+                        <!-- Garantía y términos -->
+                        <p class="small mt-3">
+                            Garantía de reembolso durante 15 días!<br>
+                            Esperamos que sigas comprando con nosotros por favor antes de su compra <a href="#" class="text-primary">Leer términos y condiciones</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Icono WhatsApp fijo -->
+    <a href="#" class="whatsapp-icon position-fixed bottom-0 end-0 m-3 d-flex align-items-center justify-content-center rounded-circle bg-success text-white shadow">
+        <i class="fab fa-whatsapp fa-lg"></i>
+    </a>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script-confirmacion.js"></script>
+</body>
+</html>

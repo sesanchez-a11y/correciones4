@@ -1,0 +1,217 @@
+@startuml EduMentor_Architecture
+title EduMentor - Plataforma de Tutorías Virtuales - Diagrama de Clases
+
+' ========== MODELOS DE DOMINIO ==========
+
+abstract class Usuario {
+    - id: string <<BsonId>>
+    - nombre: string
+    - apellido: string
+    - correo: string
+    - edad: int
+    - especializacion: string
+    - rol: string
+    - contrasenaHash: string
+}
+
+class Estudiante {
+}
+
+class Tutor {
+}
+
+Usuario <|-- Estudiante
+Usuario <|-- Tutor
+
+class Servicio {
+    - id: string <<BsonId>>
+    - titulo: string
+    - precioBase: double
+}
+
+class Reserva {
+    - id: string <<BsonId>>
+    - servicio: Servicio
+    - alumnoId: string
+    - total: double
+    - observadores: List<INotificacion>
+    + AgregarObservador(obs: INotificacion): void
+    + Notificar(mensaje: string): void
+    + Confirmar(): void
+}
+
+class Pago {
+    - id: string <<BsonId>>
+    - monto: double
+    - procesador: IPago
+}
+
+Reserva *-- Servicio : contiene
+Pago --> "1" IPago : utiliza
+
+class RegistroModel {
+    - rol: string
+    - email: string
+    - nombre: string
+    - apellido: string
+    - edad: int
+    - especializacion: string
+    - contrasena: string
+}
+
+class LoginModel {
+    - email: string
+    - password: string
+    - contrasena: string
+}
+
+class Notificacion {
+    - mensaje: string
+}
+
+' ========== INTERFACES ==========
+
+interface IUsuarioRepository {
+    + AddAsync(user: Usuario): Task<string>
+    + FindByEmailAsync(email: string): Task<Usuario?>
+    + ValidateCredentialsAsync(email: string, password: string): Task<Usuario?>
+}
+
+interface INotificacion {
+    + Enviar(mensaje: string): void
+}
+
+interface IPago {
+    + Procesar(monto: double): bool
+}
+
+interface IPrecioStrategy {
+    + Calcular(precioBase: double): double
+}
+
+' ========== IMPLEMENTACIONES DE REPOSITORIOS ==========
+
+class InMemoryUsuarioRepository {
+    - usuarios: List<Usuario>
+    + AddAsync(user: Usuario): Task<string>
+    + FindByEmailAsync(email: string): Task<Usuario?>
+    + ValidateCredentialsAsync(email: string, password: string): Task<Usuario?>
+}
+
+class MongoUsuarioRepository {
+    - usuariosCollection: IMongoCollection<Usuario>
+    + AddAsync(user: Usuario): Task<string>
+    + FindByEmailAsync(email: string): Task<Usuario?>
+    + ValidateCredentialsAsync(email: string, password: string): Task<Usuario?>
+}
+
+IUsuarioRepository <|.. InMemoryUsuarioRepository
+IUsuarioRepository <|.. MongoUsuarioRepository
+
+' ========== OBSERVADORES (NOTIFICACIONES) ==========
+
+class EmailNotificacion {
+    + Enviar(mensaje: string): void
+}
+
+class SmsNotificacion {
+    + Enviar(mensaje: string): void
+}
+
+INotificacion <|.. EmailNotificacion
+INotificacion <|.. SmsNotificacion
+
+' ========== ESTRATEGIAS DE PRECIO ==========
+
+class PrecioBase {
+    + Calcular(precioBase: double): double
+}
+
+class PrecioConDescuento {
+    - porcentajeDescuento: double
+    + Calcular(precioBase: double): double
+}
+
+class PrecioConImpuesto {
+    - porcentajeImpuesto: double
+    + Calcular(precioBase: double): double
+}
+
+IPrecioStrategy <|.. PrecioBase
+IPrecioStrategy <|.. PrecioConDescuento
+IPrecioStrategy <|.. PrecioConImpuesto
+
+' ========== FACTORY ==========
+
+class ReservaFactory {
+    + CrearReserva(alumnoId: string, servicio: Servicio): Reserva
+}
+
+ReservaFactory --> Reserva : crea
+
+' ========== CONTROLADORES ==========
+
+class ControladorDeSesion {
+    - usuarioRepo: IUsuarioRepository
+    - config: IConfiguration
+    + Test(): IActionResult
+    + Register(model: RegistroModel): Task<IActionResult>
+    + Login(model: LoginModel): Task<IActionResult>
+    + Me(): Task<IActionResult> <<[Authorize]>>
+}
+
+class ReservasController {
+    - reservasCollection: IMongoCollection<Reserva>
+    + GetReservas(): Task<IActionResult>
+    + CreateReserva(alumnoId: string): Task<IActionResult>
+}
+
+class DebugController {
+    - config: IConfiguration
+    + GetUserByEmail(email: string): Task<IActionResult>
+}
+
+ControladorDeSesion --> IUsuarioRepository : utiliza
+ReservasController --> Reserva : gestiona
+DebugController --> IUsuarioRepository : utiliza
+
+' ========== RELACIONES ==========
+
+Reserva --> INotificacion : notifica
+Usuario <-- ControladorDeSesion : autentica
+
+' ========== NOTAS ==========
+
+note right of Usuario
+  Clase base para Estudiante y Tutor
+  Almacenada en MongoDB con atributos BSON
+end note
+
+note right of IUsuarioRepository
+  Patrón Repository:
+  Abstrae acceso a datos
+  Implementaciones:
+  - In-Memory (desarrollo)
+  - MongoDB (producción)
+end note
+
+note right of Reserva
+  Patrón Observer:
+  Implementa notificaciones
+  para eventos de reserva
+end note
+
+note right of Pago
+  Patrón Strategy:
+  Procesar pagos con
+  diferentes procesadores
+end note
+
+note right of ControladorDeSesion
+  Autenticación JWT:
+  - Register: crea usuario
+  - Login: genera token JWT
+  - Me: valida token [Authorize]
+end note
+
+@enduml

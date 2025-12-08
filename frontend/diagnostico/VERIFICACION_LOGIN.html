@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificación de Login</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 { color: #333; border-bottom: 3px solid #ffc107; padding-bottom: 10px; }
+        h2 { color: #666; margin-top: 30px; }
+        .step {
+            margin: 20px 0;
+            padding: 15px;
+            background: #f9f9f9;
+            border-left: 4px solid #ffc107;
+            border-radius: 5px;
+        }
+        .step.success {
+            background: #e8f5e9;
+            border-left-color: #4caf50;
+        }
+        .step.error {
+            background: #ffebee;
+            border-left-color: #f44336;
+        }
+        .step.info {
+            background: #e3f2fd;
+            border-left-color: #2196f3;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .btn-primary {
+            background: #2196f3;
+            color: white;
+        }
+        .btn-primary:hover { background: #0b7dda; }
+        .btn-success {
+            background: #4caf50;
+            color: white;
+        }
+        .btn-success:hover { background: #45a049; }
+        .btn-danger {
+            background: #f44336;
+            color: white;
+        }
+        .btn-danger:hover { background: #da190b; }
+        code {
+            background: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New';
+        }
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .status.ok { background: #4caf50; color: white; }
+        .status.error { background: #f44336; color: white; }
+        .status.warning { background: #ff9800; color: white; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background: #ffc107;
+            font-weight: bold;
+        }
+        .highlight {
+            background: #fff9c4;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔐 Verificación Completa del Sistema de Login</h1>
+        
+        <div class="step info">
+            <strong>ℹ️ Este archivo prueba TODOS los pasos del flujo de login</strong>
+            <p>Verifica que el backend, frontend y localStorage funcionan correctamente</p>
+        </div>
+
+        <h2>1️⃣ Verificación del Backend</h2>
+        <button class="btn-primary" onclick="checkBackend()">Verificar Backend en localhost:5000</button>
+        <div id="backendStatus"></div>
+
+        <h2>2️⃣ Crear Usuario de Prueba</h2>
+        <div class="step">
+            Email: <code>testuser@prueba.com</code><br>
+            Contraseña: <code>123456</code><br>
+            <button class="btn-success" onclick="registerUser()">Registrar Usuario</button>
+        </div>
+        <div id="registerStatus"></div>
+
+        <h2>3️⃣ Iniciar Sesión (Login)</h2>
+        <div class="step">
+            <button class="btn-success" onclick="loginUser()">Login: testuser@prueba.com</button>
+        </div>
+        <div id="loginStatus"></div>
+
+        <h2>4️⃣ Verificar localStorage</h2>
+        <button class="btn-primary" onclick="checkLocalStorage()">Revisar localStorage</button>
+        <div id="storageStatus"></div>
+
+        <h2>5️⃣ Obtener Datos del Perfil (/me)</h2>
+        <button class="btn-primary" onclick="checkMe()">Obtener /me con Token</button>
+        <div id="meStatus"></div>
+
+        <h2>6️⃣ Navegación a Perfil</h2>
+        <button class="btn-success" onclick="goToProfile()">Ir a perfil.html</button>
+        <div id="navStatus"></div>
+
+        <h2>📋 Log de Consola</h2>
+        <textarea id="log" style="width: 100%; height: 300px; font-family: 'Courier New'; font-size: 12px; padding: 10px; border: 1px solid #ddd; border-radius: 5px;"></textarea>
+        <br>
+        <button class="btn-danger" onclick="clearLog()">Limpiar Log</button>
+
+        <div class="highlight" style="margin-top: 30px;">
+            <strong>💡 Instrucciones:</strong>
+            <ol>
+                <li>Haz clic en cada botón en orden de arriba hacia abajo</li>
+                <li>Revisa el estado mostrado debajo de cada sección</li>
+                <li>Si algún paso falla, revisa el log de consola (F12)</li>
+                <li>Si todo es verde (✓), entonces el sistema funciona correctamente</li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        const API = 'http://localhost:5000/api/ControladorDeSesion';
+        const testEmail = 'testuser@prueba.com';
+        const testPassword = '123456';
+
+        function log(msg, type = 'info') {
+            const textarea = document.getElementById('log');
+            const time = new Date().toLocaleTimeString();
+            const prefix = type === 'success' ? '✓' : type === 'error' ? '✗' : 'ℹ';
+            textarea.value += `[${time}] ${prefix} ${msg}\n`;
+            textarea.scrollTop = textarea.scrollHeight;
+            console.log(msg);
+        }
+
+        function clearLog() {
+            document.getElementById('log').value = '';
+        }
+
+        function setStatus(elementId, message, type = 'info') {
+            const el = document.getElementById(elementId);
+            const icon = type === 'success' ? '✓' : type === 'error' ? '✗' : 'ℹ';
+            const className = type === 'success' ? 'ok' : type === 'error' ? 'error' : 'warning';
+            el.innerHTML = `<div class="status ${className}">${icon} ${message}</div>`;
+        }
+
+        async function checkBackend() {
+            log('Verificando backend en localhost:5000...');
+            try {
+                const response = await fetch(`${API}/test` || 'http://localhost:5000/api/ping');
+                if (response.ok) {
+                    const data = await response.json();
+                    log('Backend respondió correctamente', 'success');
+                    setStatus('backendStatus', `✓ Backend funcionando: ${JSON.stringify(data)}`, 'success');
+                } else {
+                    log(`Backend retornó error: ${response.status}`, 'error');
+                    setStatus('backendStatus', `✗ Error ${response.status}`, 'error');
+                }
+            } catch (err) {
+                log(`Error de conexión: ${err.message}`, 'error');
+                setStatus('backendStatus', `✗ No se puede conectar: ${err.message}`, 'error');
+            }
+        }
+
+        async function registerUser() {
+            log(`Registrando usuario: ${testEmail}...`);
+            const data = {
+                Email: testEmail,
+                Contrasena: testPassword,
+                Nombre: 'Test',
+                Apellido: 'User',
+                Edad: 25,
+                Especializacion: 'Testing',
+                Rol: 'Alumno'
+            };
+
+            try {
+                const response = await fetch(`${API}/register`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+
+                const result = await response.json();
+                if (response.ok) {
+                    log(`Registro exitoso: ${testEmail}`, 'success');
+                    setStatus('registerStatus', `✓ Usuario registrado: ${testEmail}`, 'success');
+                } else if (response.status === 409) {
+                    log(`Usuario ya existe: ${testEmail}`, 'success');
+                    setStatus('registerStatus', `✓ Usuario ya existe (está bien): ${testEmail}`, 'success');
+                } else {
+                    log(`Error: ${result.message}`, 'error');
+                    setStatus('registerStatus', `✗ Error: ${result.message}`, 'error');
+                }
+            } catch (err) {
+                log(`Error de red: ${err.message}`, 'error');
+                setStatus('registerStatus', `✗ Error de conexión`, 'error');
+            }
+        }
+
+        async function loginUser() {
+            log(`Iniciando sesión: ${testEmail}...`);
+            const data = {
+                Email: testEmail,
+                Password: testPassword
+            };
+
+            try {
+                const response = await fetch(`${API}/login`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+
+                const result = await response.json();
+                if (response.ok) {
+                    log(`Login exitoso: ${testEmail}`, 'success');
+                    log(`Token obtenido (${result.token.substring(0, 30)}...)`, 'success');
+                    log(`Usuario: ${result.user.nombre} ${result.user.apellido}`, 'success');
+
+                    localStorage.setItem('token', result.token);
+                    localStorage.setItem('currentUser', JSON.stringify(result.user));
+                    log(`Token y usuario guardados en localStorage`, 'success');
+
+                    setStatus('loginStatus', `✓ Login exitoso para ${testEmail}`, 'success');
+                } else {
+                    log(`Login falló: ${result.message}`, 'error');
+                    setStatus('loginStatus', `✗ Error: ${result.message}`, 'error');
+                }
+            } catch (err) {
+                log(`Error de red: ${err.message}`, 'error');
+                setStatus('loginStatus', `✗ Error de conexión`, 'error');
+            }
+        }
+
+        function checkLocalStorage() {
+            log('Verificando localStorage...');
+            const token = localStorage.getItem('token');
+            const user = localStorage.getItem('currentUser');
+
+            if (token && user) {
+                const userObj = JSON.parse(user);
+                log(`✓ Token existe (${token.substring(0, 30)}...)`, 'success');
+                log(`✓ Usuario existe: ${userObj.nombre} ${userObj.apellido}`, 'success');
+                setStatus('storageStatus', `✓ localStorage correcto`, 'success');
+            } else {
+                log(`✗ Token: ${token ? 'existe' : 'NO EXISTE'}`, 'error');
+                log(`✗ Usuario: ${user ? 'existe' : 'NO EXISTE'}`, 'error');
+                setStatus('storageStatus', `✗ localStorage vacío - realiza login primero`, 'error');
+            }
+        }
+
+        async function checkMe() {
+            log('Obteniendo /me con token...');
+            const token = localStorage.getItem('token');
+
+            if (!token) {
+                log(`✗ No hay token en localStorage - realiza login primero`, 'error');
+                setStatus('meStatus', `✗ Sin token - login primero`, 'error');
+                return;
+            }
+
+            try {
+                const response = await fetch(`${API}/me`, {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    const user = await response.json();
+                    log(`✓ /me retornó datos correctamente`, 'success');
+                    log(`✓ Datos: ${JSON.stringify(user)}`, 'success');
+                    const html = `
+                        <table>
+                            <tr><th>Campo</th><th>Valor</th></tr>
+                            <tr><td>ID</td><td>${user.id}</td></tr>
+                            <tr><td>Nombre</td><td>${user.nombre}</td></tr>
+                            <tr><td>Apellido</td><td>${user.apellido}</td></tr>
+                            <tr><td>Correo</td><td>${user.correo}</td></tr>
+                            <tr><td>Rol</td><td>${user.rol}</td></tr>
+                            <tr><td>Edad</td><td>${user.edad}</td></tr>
+                            <tr><td>Especialización</td><td>${user.especializacion}</td></tr>
+                        </table>
+                    `;
+                    document.getElementById('meStatus').innerHTML = html;
+                    setStatus('meStatus', `✓ /me funcionando correctamente`, 'success');
+                } else {
+                    log(`✗ Error en /me: ${response.status}`, 'error');
+                    const error = await response.json();
+                    log(`✗ ${error.message || response.statusText}`, 'error');
+                    setStatus('meStatus', `✗ Error: ${response.status}`, 'error');
+                }
+            } catch (err) {
+                log(`✗ Error de red: ${err.message}`, 'error');
+                setStatus('meStatus', `✗ Error de conexión`, 'error');
+            }
+        }
+
+        function goToProfile() {
+            const token = localStorage.getItem('token');
+            if (!token) {
+                log(`✗ No hay token - realiza login primero`, 'error');
+                setStatus('navStatus', `✗ Sin token`, 'error');
+                return;
+            }
+            log(`✓ Navegando a perfil.html...`, 'success');
+            setTimeout(() => {
+                window.location.href = './archivoshtml/perfil.html';
+            }, 1000);
+        }
+
+        log('📄 Página de verificación cargada. ¡Comienza con el paso 1!');
+    </script>
+</body>
+</html>

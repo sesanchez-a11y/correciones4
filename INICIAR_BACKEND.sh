@@ -6,10 +6,10 @@ echo " 🚀 Iniciando Backend EduMentor"
 echo "==============================================="
 echo ""
 echo "Backend: ASP.NET Core 9.0"
-echo "Ubicación: $(pwd)/../TutoriasDeClasesbackend"
+echo "Ubicación: $(pwd)/correccion5/TutoriasDeClasesbackend"
 echo ""
 
-cd "../TutoriasDeClasesbackend"
+cd "./correccion5/TutoriasDeClasesbackend"
 
 dotnet run
 

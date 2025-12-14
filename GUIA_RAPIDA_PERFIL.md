@@ -38,7 +38,7 @@ Sin reintentos → 50 reintentos  ⬆️ Busca hasta 5 segundos
 ### Método 2️⃣: Manual (Si necesitas más control)
 ```powershell
 # Terminal 1: Iniciar backend
-cd "../TutoriasDeClasesbackend"
+cd "./correccion5/TutoriasDeClasesbackend"
 dotnet run
 
 # Terminal 2: Abrir navegador

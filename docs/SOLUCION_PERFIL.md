@@ -169,7 +169,7 @@ CurrentUser en localStorage: ✓ Existe
 
 ```powershell
 # En una terminal PowerShell, ve a la carpeta del backend
-cd "c:\tareas\PROYECTO SOFTWARE2\TutoriasDeClasesbackend"
+cd ".\backend"
 
 # Asegúrate que el backend está corriendo
 dotnet run

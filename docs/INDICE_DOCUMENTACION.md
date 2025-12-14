@@ -32,7 +32,7 @@
 ## 📁 Estructura de Archivos
 
 ```
-c:\tareas\PROYECTO SOFTWARE2\
+.\
 │
 ├── 📄 GUIA_RAPIDA_PERFIL.md ⭐ COMIENZA AQUÍ
 │   └─ 2 minutos, pasos rápidos
@@ -63,7 +63,7 @@ c:\tareas\PROYECTO SOFTWARE2\
 │   └── 📄 SOLUCION_PERFIL.md
 │       └─ Copia en frontend/ para fácil acceso
 │
-└── TutoriasDeClasesbackend/
+└── backend/
     └─ (No se modificó nada, backend OK)
 ```
 

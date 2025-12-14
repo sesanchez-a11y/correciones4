@@ -5,7 +5,7 @@
 ### 1. Verificar Backend
 
 ```powershell
-cd "c:\tareas\PROYECTO SOFTWARE2\TutoriasDeClasesbackend"
+cd ".\backend"
 dotnet run
 ```
 
@@ -99,10 +99,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 ```bash
 # Desde PowerShell en VS Code
-grep -r "nombre-de-clase" c:\tareas\PROYECTO SOFTWARE2\frontend\archivoscss\
+grep -r "nombre-de-clase" .\frontend\archivoscss\
 
 # Ejemplo: buscar ".professor-card"
-grep -r "professor-card" c:\tareas\PROYECTO SOFTWARE2\frontend\archivoscss\
+grep -r "professor-card" .\frontend\archivoscss\
 ```
 
 **Resultado esperado:**

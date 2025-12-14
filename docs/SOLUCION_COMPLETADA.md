@@ -109,7 +109,7 @@ Tasa de éxito: 95%+
 
 ### Paso 1: Verificar los cambios
 ```bash
-cd "c:\tareas\PROYECTO SOFTWARE2"
+cd "."
 
 # Verificar perfil.js tiene 500ms
 grep "setTimeout(resolve, 500)" frontend/archivosjs/perfil.js
@@ -122,7 +122,7 @@ grep "800);" frontend/archivosjs/reseccion.js
 ```bash
 # Opción A: Doble-click en INICIAR_BACKEND.bat
 # Opción B: Desde PowerShell
-cd TutoriasDeClasesbackend
+cd backend
 dotnet run
 ```
 

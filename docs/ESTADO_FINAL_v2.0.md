@@ -131,7 +131,7 @@ Token Storage: localStorage
 ## 📁 Estructura de Archivos
 
 ```
-TutoriasDeClasesbackend/
+backend/
 ├── Modelos/
 │   ├── Usuario.cs ..................... [UserRole enum + FechaCreacion]
 │   ├── Curso.cs ....................... [NUEVO]
@@ -421,7 +421,7 @@ PUT    /api/Cursos/admin/{id}/rechazar [Authorized: Admin]
 
 ### Backend
 ```bash
-cd TutoriasDeClasesbackend
+cd backend
 dotnet build      # Compilar
 dotnet run        # Ejecutar (puerto 5000)
 ```

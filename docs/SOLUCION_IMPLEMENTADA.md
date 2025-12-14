@@ -70,13 +70,13 @@ init() → esperar 500ms
 
 ### Opción B: Desde Terminal
 ```powershell
-cd "c:\tareas\PROYECTO SOFTWARE2\TutoriasDeClasesbackend"
+cd ".\backend"
 dotnet run
 ```
 
 Luego en otra terminal:
 ```powershell
-cd "c:\tareas\PROYECTO SOFTWARE2\frontend"
+cd ".\frontend"
 # Abre archivoshtml/reseccion.html en el navegador
 ```
 
@@ -93,23 +93,23 @@ cd "c:\tareas\PROYECTO SOFTWARE2\frontend"
 ## 📋 Archivos Modificados
 
 ```
-✅ c:\tareas\PROYECTO SOFTWARE2\frontend\archivosjs\perfil.js
+✅ .\frontend\archivosjs\perfil.js
    - Delays aumentados
    - Sistema de reintentos mejorado
    - Logging detallado
 
-✅ c:\tareas\PROYECTO SOFTWARE2\frontend\archivosjs\reseccion.js
+✅ .\frontend\archivosjs\reseccion.js
    - Timeout aumentado
    - Logging mejorado
    - Validación explícita
 
-✅ NEW: c:\tareas\PROYECTO SOFTWARE2\frontend\archivoshtml\DIAGNOSTICO_PERFIL.html
+✅ NEW: .\frontend\archivoshtml\DIAGNOSTICO_PERFIL.html
    - Herramienta de diagnóstico interactiva
 
-✅ NEW: c:\tareas\PROYECTO SOFTWARE2\frontend\SOLUCION_PERFIL.md
+✅ NEW: .\frontend\SOLUCION_PERFIL.md
    - Documentación completa
 
-✅ NEW: c:\tareas\PROYECTO SOFTWARE2\INICIAR_BACKEND.bat
+✅ NEW: .\INICIAR_BACKEND.bat
    - Script para iniciar backend fácilmente
 ```
 

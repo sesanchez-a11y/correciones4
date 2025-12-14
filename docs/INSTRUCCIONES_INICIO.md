@@ -52,7 +52,7 @@ netstat -an | Select-String ":27017"
 ```
 
 3) Revisar configuración del backend
-- El backend está en `TutoriasDeClasesbackend/`.
+- El backend está en `backend/`.
 - Abre `appsettings.json` (o `Program.cs`) para confirmar la cadena de conexión a MongoDB y el puerto en el que corre la API (por defecto suele ser `http://localhost:5000` o `http://localhost:5001` si HTTPS). Si necesitas cambiar la conexión, edita `appsettings.json` o las variables de entorno.
 
 4) (Opcional) Habilitar creación del admin por defecto
@@ -70,7 +70,7 @@ $env:EnableDefaultAdmin = 'true'
 1. Abre PowerShell en la carpeta del backend:
 
 ```powershell
-cd "c:\tareas\PROYECTO SOFTWARE2\TutoriasDeClasesbackend"
+cd ".\backend"
 ```
 
 2. Restaurar paquetes y compilar:
@@ -104,13 +104,13 @@ La respuesta debe incluir un `token` (JWT) y datos del `user`.
 Tienes dos formas de abrir el frontend:
 
 A) Abrir archivos directamente en el navegador
-- Ve a `c:\tareas\PROYECTO SOFTWARE2\frontend\archivoshtml\reservas.html` y haz doble clic para abrirlo en tu navegador. Algunas funciones que requieren CORS o fetch desde el backend pueden no funcionar si lo abres como archivo local.
+- Ve a `.\frontend\archivoshtml\reservas.html` y haz doble clic para abrirlo en tu navegador. Algunas funciones que requieren CORS o fetch desde el backend pueden no funcionar si lo abres como archivo local.
 
 B) Servir las páginas con un servidor estático (recomendado)
 - Instalar Python 3 y ejecutar un servidor simple desde la carpeta `frontend/archivoshtml`:
 
 ```powershell
-cd "c:\tareas\PROYECTO SOFTWARE2\frontend\archivoshtml"
+cd ".\frontend\archivoshtml"
 # Python 3 (PowerShell)
 py -3 -m http.server 5500
 # o si 'python' está en PATH:

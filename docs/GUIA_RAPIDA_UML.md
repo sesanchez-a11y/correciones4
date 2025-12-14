@@ -138,7 +138,7 @@ plantuml DIAGRAMA_UML.puml
 ## 📋 Lista de Archivos
 
 ```
-c:\tareas\PROYECTO SOFTWARE2\
+.\
 ├── DIAGRAMA_UML.puml              ← Diagrama de clases
 ├── DIAGRAMA_SECUENCIA_AUTH.puml   ← Flujos de autenticación
 ├── DIAGRAMA_CAPAS.puml            ← Arquitectura en capas

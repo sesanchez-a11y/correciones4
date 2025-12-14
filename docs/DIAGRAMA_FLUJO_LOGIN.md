@@ -5,7 +5,7 @@
 ### **FRONTEND (Cliente)**
 
 #### 1. **reseccion.html** ← Página de Login
-- **Ubicación**: `c:\tareas\PROYECTO SOFTWARE2\frontend\archivoshtml\reseccion.html`
+- **Ubicación**: `.\frontend\archivoshtml\reseccion.html`
 - **Función**: Formulario HTML para ingreso de credenciales
 - **IDs clave**:
   - `loginForm` - Formulario
@@ -15,7 +15,7 @@
 - **Clase CSS**: `reseccion-page` (identifica la página)
 
 #### 2. **reseccion.js** ← Script que valida el login
-- **Ubicación**: `c:\tareas\PROYECTO SOFTWARE2\frontend\archivosjs\reseccion.js`
+- **Ubicación**: `.\frontend\archivosjs\reseccion.js`
 - **Función principal**: Manejar evento `submit` del formulario
 - **Código clave**:
   ```javascript
@@ -57,7 +57,7 @@
 ### **BACKEND (Servidor ASP.NET Core)**
 
 #### 3. **controladordesecion.cs** ← Valida credenciales
-- **Ubicación**: `c:\tareas\PROYECTO SOFTWARE2\TutoriasDeClasesbackend\Controllers\controladordesecion.cs`
+- **Ubicación**: `.\backend\Controllers\controladordesecion.cs`
 - **Endpoint**: `POST /api/ControladorDeSesion/login`
 - **Función**:
   ```csharp
@@ -91,7 +91,7 @@
 ### **FRONTEND (Después del login)**
 
 #### 4. **perfil.html** ← Página destino después del login
-- **Ubicación**: `c:\tareas\PROYECTO SOFTWARE2\frontend\archivoshtml\perfil.html`
+- **Ubicación**: `.\frontend\archivoshtml\perfil.html`
 - **Función**: Mostrar datos del usuario autenticado
 - **IDs clave para actualizar datos**:
   - `userNameTable` - Mostrar nombre
@@ -101,7 +101,7 @@
 - **Clase CSS**: `perfil-page`
 
 #### 5. **perfil.js** ← Script que carga y muestra datos del perfil
-- **Ubicación**: `c:\tareas\PROYECTO SOFTWARE2\frontend\archivosjs\perfil.js`
+- **Ubicación**: `.\frontend\archivosjs\perfil.js`
 - **Función principal**: Cargar datos del usuario autenticado
 - **Código clave**:
   ```javascript
@@ -302,7 +302,7 @@ document.getElementById('userRolTable')
 |---------|------|-----------|---------|
 | **reseccion.html** | HTML | `frontend/archivoshtml/` | Formulario login |
 | **reseccion.js** | JS | `frontend/archivosjs/` | Maneja login, valida, redirige |
-| **controladordesecion.cs** | C# | `TutoriasDeClasesbackend/Controllers/` | Endpoint /login, genera token |
+| **controladordesecion.cs** | C# | `backend/Controllers/` | Endpoint /login, genera token |
 | **perfil.html** | HTML | `frontend/archivoshtml/` | Página destino, muestra datos |
 | **perfil.js** | JS | `frontend/archivosjs/` | Carga datos, actualiza HTML |
 

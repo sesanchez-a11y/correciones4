@@ -109,7 +109,7 @@ Cada página HTML debe cargar CSS en este orden **exacto**:
 
 ## 🔌 Backend - Endpoints Esperados
 
-El backend (`TutoriasDeClasesbackend`) expone estos endpoints usados por el frontend:
+El backend (`backend`) expone estos endpoints usados por el frontend:
 
 | Método | Endpoint | Propósito | Headers Requeridos |
 |--------|----------|-----------|-------------------|
@@ -227,7 +227,7 @@ document.getElementById('user-name').textContent = currentUser.nombre;
 
 ## 📞 Contacto & Soporte
 
-- **Backend:** ASP.NET Core (.NET 9) en `TutoriasDeClasesbackend/`
+- **Backend:** ASP.NET Core (.NET 9) en `backend/`
 - **Base de Datos:** MongoDB `localhost:27017`
 - **Frontend Port:** `http://localhost:5000`
 - **Servidor:** Kestrel

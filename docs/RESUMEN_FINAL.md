@@ -47,7 +47,7 @@ INICIAR_BACKEND.bat        ← Script para iniciar backend
 
 1. **Doble-click aquí:**
    ```
-   c:\tareas\PROYECTO SOFTWARE2\INICIAR_BACKEND.bat
+   .\INICIAR_BACKEND.bat
    ```
 
 2. **Abre en navegador:**
@@ -117,7 +117,7 @@ RESUMEN_FINAL.md                ← Este archivo
 frontend/archivoshtml/perfil.html
 frontend/archivosjs/iniciodecesion.js
 frontend/archivosjs/reseccion.js (excepto el cambio de timing)
-TutoriasDeClasesbackend/ (todo OK)
+backend/ (todo OK)
 MongoDB (todo OK)
 ```
 

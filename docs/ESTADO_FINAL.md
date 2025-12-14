@@ -58,7 +58,7 @@ El proyecto **EduMentor** (plataforma de tutoría online) ha alcanzado un **hito
 ## 📁 Estructura Final del Proyecto
 
 ```
-c:\tareas\PROYECTO SOFTWARE2\
+./
 ├── frontend/                          # Frontend unificado
 │   ├── archivoshtml/
 │   │   ├── inicio.html
@@ -85,7 +85,7 @@ c:\tareas\PROYECTO SOFTWARE2\
 │   ├── GUIA_RAPIDA.md                # 📚 Guía para desarrolladores
 │   └── README.md
 │
-├── TutoriasDeClasesbackend/           # Backend ASP.NET Core
+├── backend/                           # Backend ASP.NET Core
 │   ├── Program.cs                    # ✅ Configurado para servir frontend
 │   ├── Controllers/
 │   │   └── ControladorDeSesion.cs   # Login, Register, /me endpoints
@@ -104,7 +104,7 @@ c:\tareas\PROYECTO SOFTWARE2\
 │   ├── Strategies/
 │   └── bin/Debug/net9.0/
 │
-└── TutoriasDeClases.Tests/            # Unit tests
+└── tests/                             # Unit tests
 ```
 
 ---
@@ -274,7 +274,7 @@ c:\tareas\PROYECTO SOFTWARE2\
 
 ## 📞 Soporte & Contacto
 
-- **Repositorio Backend:** `TutoriasDeClasesbackend/`
+- **Repositorio Backend:** `backend/`
 - **Repositorio Frontend:** `frontend/`
 - **URL Desarrollo:** `http://localhost:5000`
 - **Documentación:** `frontend/ARQUITECTURA.md` + `frontend/GUIA_RAPIDA.md`

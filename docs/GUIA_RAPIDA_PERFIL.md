@@ -28,7 +28,7 @@ Sin reintentos → 50 reintentos  ⬆️ Busca hasta 5 segundos
 ## 🚀 CÓMO PROBAR AHORA
 
 ### Método 1️⃣: Más Fácil (Recomendado)
-1. Busca la carpeta: `c:\tareas\PROYECTO SOFTWARE2\`
+1. Busca la carpeta: `.\`
 2. Haz **doble-click** en: `INICIAR_BACKEND.bat` ⚡
 3. Espera a que salga: `Now listening on: http://localhost:5000`
 4. Abre navegador: `http://localhost:5000/../frontend/archivoshtml/reseccion.html`
@@ -38,7 +38,7 @@ Sin reintentos → 50 reintentos  ⬆️ Busca hasta 5 segundos
 ### Método 2️⃣: Manual (Si necesitas más control)
 ```powershell
 # Terminal 1: Iniciar backend
-cd "c:\tareas\PROYECTO SOFTWARE2\TutoriasDeClasesbackend"
+cd ".\backend"
 dotnet run
 
 # Terminal 2: Abrir navegador
@@ -150,7 +150,7 @@ Esperar hasta ver: "Now listening on: http://localhost:5000"
 
 ### Paso 2: Abrir Login
 ```
-Ir a: c:\tareas\PROYECTO SOFTWARE2\frontend\archivoshtml\reseccion.html
+Ir a: .\frontend\archivoshtml\reseccion.html
 O abrir en navegador: file:///c:/tareas/PROYECTO%20SOFTWARE2/frontend/archivoshtml/reseccion.html
 ```
 

@@ -246,7 +246,7 @@ if (crearCursoBtn) {
 
 ```bash
 # Backend
-cd TutoriasDeClasesbackend
+cd backend
 dotnet build          # ✓ Compilación exitosa
 dotnet run           # ✓ Ejecutándose en http://localhost:5000
 

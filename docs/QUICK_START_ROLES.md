@@ -4,7 +4,7 @@
 
 ### 1️⃣ Iniciar Backend
 ```powershell
-cd "c:\tareas\PROYECTO SOFTWARE2\TutoriasDeClasesbackend"
+cd ".\backend"
 dotnet run
 ```
 ✅ Verás: `Now listening on: http://localhost:5000`

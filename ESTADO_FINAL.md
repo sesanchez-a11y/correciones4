@@ -58,7 +58,7 @@ El proyecto **EduMentor** (plataforma de tutoría online) ha alcanzado un **hito
 ## 📁 Estructura Final del Proyecto
 
 ```
-c:\tareas\PROYECTO SOFTWARE2\
+./correccion5/
 ├── frontend/                          # Frontend unificado
 │   ├── archivoshtml/
 │   │   ├── inicio.html

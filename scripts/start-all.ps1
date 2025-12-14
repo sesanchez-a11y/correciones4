@@ -1,7 +1,7 @@
 <#
 start-all.ps1
 Inicia: MongoDB service (si existe), el backend (.NET) y el servidor estático (Python http.server).
-Uso: Ejecutar desde PowerShell: `.	areas\PROYECTO SOFTWARE2\start-all.ps1`
+Uso: Ejecutar desde PowerShell: ./scripts/start-all.ps1
 #>
 Set-StrictMode -Version Latest
 
@@ -20,7 +20,7 @@ if ($null -eq $svc) {
 }
 
 Write-Host "\n2) Iniciando backend (.NET) en una nueva ventana de PowerShell..."
-$backendDir = Join-Path $root 'TutoriasDeClasesbackend'
+$backendDir = Join-Path $root 'backend'
 if (-not (Test-Path $backendDir)) { Write-Warning "No se encontró el directorio del backend: $backendDir" } else {
     $psCommand = "$env:ASPNETCORE_ENVIRONMENT='Development'; $env:EnableDefaultAdmin='true'; cd '$backendDir'; dotnet run"
     Start-Process -FilePath 'powershell.exe' -ArgumentList '-NoExit','-Command', $psCommand -WorkingDirectory $backendDir

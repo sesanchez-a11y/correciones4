@@ -45,7 +45,7 @@ Prueba de carga principal que evalúa:
 Antes de ejecutar las pruebas, asegúrate de que el backend esté corriendo:
 
 ```bash
-cd TutoriasDeClasesbackend
+cd ../backend
 dotnet run
 ```
 

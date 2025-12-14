@@ -164,7 +164,7 @@ if (app.Environment.IsDevelopment())
 // Intentar primero en ../frontend, luego en ../carpeta (relativo a ContentRootPath)
 string staticFilesPath = null;
 
-// Opción 1: ../frontend (relativo a TutoriasDeClasesbackend)
+// Opción 1: ../frontend (relativo a backend)
 var frontendPath = Path.GetFullPath(Path.Combine(builder.Environment.ContentRootPath, "..", "frontend"));
 if (Directory.Exists(frontendPath))
 {

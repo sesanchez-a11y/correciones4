@@ -3,7 +3,7 @@ INSTRUCCIONES PARA INICIAR EL PROYECTO (Windows / PowerShell)
 ⚡ **OPCIÓN RÁPIDA** (Recomendado): Ejecuta UN SOLO COMANDO
 ================================================================================
 ```powershell
-powershell -ExecutionPolicy Bypass -File "C:\tareas\PROYECTO SOFTWARE2\start-all.ps1"
+powershell -ExecutionPolicy Bypass -File "./scripts/start-all.ps1"
 ```
 Esto inicia: MongoDB + Backend (.NET) + Servidor Estático (Python) automáticamente.
 Luego abre en tu navegador: http://localhost:5500/iniciosesion.html

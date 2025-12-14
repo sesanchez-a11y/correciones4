@@ -8,6 +8,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Tu CSS personalizado -->
     <link rel="stylesheet" href="../archivoscss/inicio.css" />
+    <!-- Font Awesome para íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
@@ -29,11 +31,14 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Iniciar Sesión</a>
-                    </li>
-                </ul>
+                <!-- Contenedor para utilidades (se inyecta por JS sólo si hay sesión) -->
+                <div id="navUtilitiesContainer" class="ms-auto"></div>
+                <!-- Si no hay sesión, mostramos enlace de inicio (por defecto) -->
+                <div id="navLoginContainer" class="ms-auto">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="reseccion.html">Iniciar Sesión</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </nav>
@@ -115,5 +120,8 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../archivosjs/inicio.js"></script>
+    <!-- SignalR + lógica de notificaciones compartida -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.5/signalr.min.js" integrity="sha512-/rK7qzK4VhQv..." crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="../archivosjs/notificaciones.js"></script>
 </body>
 </html>

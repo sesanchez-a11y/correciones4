@@ -194,6 +194,165 @@ async function loadUserData() {
     }
   }
 
+  // Mostrar/Ocultar botón "Crear Curso" basado en rol
+  const crearCursoBtn = document.getElementById('crearCursoBtn');
+  if (crearCursoBtn) {
+    console.log('DEBUG: Verificando rol para mostrar botón "Crear Curso"');
+    console.log('DEBUG: user.rol =', user.rol);
+    
+    // Validación doble: usuario.rol y token JWT
+    const isRolTutor = user.rol && (user.rol.toLowerCase() === 'tutor' || user.rol === 'Tutor');
+    console.log('DEBUG: isRolTutor =', isRolTutor);
+    
+    if (isRolTutor) {
+      crearCursoBtn.style.display = 'flex';
+      console.log('✓ Botón "Crear Curso" mostrado para Tutor');
+    } else {
+      crearCursoBtn.style.display = 'none';
+      console.log('✓ Botón "Crear Curso" oculto - Rol es:', user.rol);
+    }
+  }
+
+  // Renderizar notificaciones (si las hay)
+  try {
+    const notiContainer = document.getElementById('notificationsContainer');
+    const notiCountEl = document.getElementById('notificationsCount');
+    if (notiContainer) {
+      // Limpiar contenido previo
+      notiContainer.innerHTML = '';
+      const notificaciones = user.notificaciones || [];
+      if (notificaciones.length === 0) {
+        notiContainer.innerHTML = '<div class="text-muted small">No hay notificaciones.</div>';
+        if (notiCountEl) notiCountEl.classList.add('d-none');
+      } else {
+        if (notiCountEl) { notiCountEl.textContent = notificaciones.length; notiCountEl.classList.remove('d-none'); }
+        notificaciones.forEach(n => {
+          const item = document.createElement('div');
+          item.className = 'list-group-item d-flex justify-content-between align-items-start';
+          item.innerHTML = `<div class="ms-2 me-auto small">${escapeHtml(n.mensaje)}</div><div><button class="btn btn-sm btn-link text-danger mark-read-btn" data-id="${n.id}">Marcar leído</button></div>`;
+          notiContainer.appendChild(item);
+        });
+        // Delegación para botones "Marcar leído"
+        notiContainer.querySelectorAll('.mark-read-btn').forEach(btn => {
+          btn.addEventListener('click', async (e) => {
+            e.preventDefault();
+            const id = btn.getAttribute('data-id');
+            await deleteNotification(id, btn);
+          });
+        });
+      }
+    }
+
+    // Renderizar notificaciones en navbar dropdown también
+    renderNotificationsNavbar(user.notificaciones || []);
+
+  } catch (e) {
+    console.warn('Error al renderizar notificaciones:', e);
+  }
+
+// Función para renderizar notificaciones en el navbar dropdown
+function renderNotificationsNavbar(notificaciones) {
+  const dropdown = document.getElementById('notificacionesDropdownList');
+  const badge = document.getElementById('notificationsNavBadge');
+  if (!dropdown) return;
+
+  // Filtrar no leídas
+  const noLeidas = notificaciones.filter(n => !n.leida);
+
+  dropdown.innerHTML = '';
+  if (noLeidas.length === 0) {
+    dropdown.innerHTML = '<li><div class="dropdown-item-text text-muted small">Sin notificaciones nuevas</div></li>';
+    if (badge) badge.classList.add('d-none');
+  } else {
+    if (badge) { badge.textContent = noLeidas.length; badge.classList.remove('d-none'); }
+    noLeidas.forEach(n => {
+      const li = document.createElement('li');
+      li.innerHTML = `<a href="#" class="dropdown-item small" data-id="${n.id}"><strong>${escapeHtml(n.mensaje.substring(0, 40))}...</strong><br/><small class="text-muted">Marcar leído</small></a>`;
+      dropdown.appendChild(li);
+      li.querySelector('a').addEventListener('click', async (e) => { e.preventDefault(); await deleteNotification(n.id, li.querySelector('a')); });
+    });
+  }
+}
+
+// pequeña función para escapar HTML
+function escapeHtml(str) {
+  if (!str) return '';
+  return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+async function deleteNotification(notificationId, btnEl) {
+  if (!notificationId) return;
+  const token = localStorage.getItem('token');
+  if (!token) { alert('No autenticado'); return; }
+
+  try {
+    btnEl.disabled = true;
+    const resp = await fetch(`${API_BASE_URL}/ControladorDeSesion/notifications/${notificationId}/read`, {
+      method: 'PUT',
+      headers: { 'Authorization': `Bearer ${token}` }
+    });
+    if (resp.ok) {
+      // remover elemento visual
+      const item = btnEl.closest('.list-group-item');
+      if (item) item.remove();
+      // actualizar contador
+      const notiCountEl = document.getElementById('notificationsCount');
+      if (notiCountEl) {
+        const current = parseInt(notiCountEl.textContent || '0');
+        const next = Math.max(0, current - 1);
+        if (next === 0) { notiCountEl.classList.add('d-none'); }
+        notiCountEl.textContent = next;
+      }
+    } else {
+      const err = await resp.json().catch(() => ({}));
+      alert('Error al eliminar notificación: ' + (err.message || resp.status));
+      btnEl.disabled = false;
+    }
+  } catch (e) {
+    console.error('Error al eliminar notificación:', e);
+    btnEl.disabled = false;
+  }
+}
+
+// === SignalR: inicializar conexión para recibir notificaciones en tiempo real ===
+let __signalRConnection = null;
+async function initSignalR() {
+  const token = localStorage.getItem('token');
+  if (!token) return;
+  try {
+    const base = API_BASE_URL.replace(/\/api\/?$/, '');
+    __signalRConnection = new signalR.HubConnectionBuilder()
+      .withUrl(`${base}/hubs/notifications`, { accessTokenFactory: () => token })
+      .withAutomaticReconnect()
+      .build();
+
+    __signalRConnection.on('ReceiveNotification', (n) => {
+      try {
+        const notiContainer = document.getElementById('notificationsContainer');
+        const notiCountEl = document.getElementById('notificationsCount');
+        if (!notiContainer) return;
+        // crear elemento
+        const item = document.createElement('div');
+        item.className = 'list-group-item d-flex justify-content-between align-items-start';
+        item.innerHTML = `<div class="ms-2 me-auto small">${escapeHtml(n.mensaje)}</div><div><button class="btn btn-sm btn-link text-danger mark-read-btn" data-id="${n.id}">Marcar leído</button></div>`;
+        // si estaba mensaje 'No hay notificaciones.' eliminarlo
+        const noMsg = notiContainer.querySelector('.text-muted.small');
+        if (noMsg) noMsg.remove();
+        notiContainer.prepend(item);
+        // actualizar contador
+        if (notiCountEl) { notiCountEl.classList.remove('d-none'); const cur = parseInt(notiCountEl.textContent||'0'); notiCountEl.textContent = cur + 1; }
+        // agregar manejador al botón creado
+        const btn = item.querySelector('.mark-read-btn');
+        if (btn) btn.addEventListener('click', async (e) => { e.preventDefault(); await deleteNotification(btn.getAttribute('data-id'), btn); });
+      } catch (e) { console.warn('Error al procesar notificación entrante:', e); }
+    });
+
+    await __signalRConnection.start();
+    console.log('✓ SignalR conectado para notificaciones');
+  } catch (e) {
+    console.warn('No se pudo conectar a SignalR:', e);
+  }
+}
   console.log('✓ Datos del usuario cargados correctamente');
 }
 
@@ -258,6 +417,167 @@ function getMaterialesHTML() {
 
 function getHorariosHTML() {
   return `<h2 class="mb-4 text-primary-custom border-bottom pb-2 fw-bold"><i class="far fa-clock me-2"></i>Horarios y Sesiones en Vivo</h2><div class="alert alert-warning d-flex align-items-center" role="alert"><i class="fas fa-calendar-alt me-3 fa-lg"></i><div><strong>Aviso Importante:</strong> Revisa la zona horaria. Todas las horas son mostradas en su hora local.</div></div><div class="table-responsive mt-4"><table class="table table-bordered table-striped text-center"><thead><tr class="bg-primary text-white"><th>Curso</th><th>Día</th><th>Hora</th><th>Enlace</th></tr></thead><tbody><tr><td>Desarrollo Web (Módulo CSS)</td><td>Miércoles</td><td>19:00 - 20:30 (GMT-5)</td><td><a href="#" class="btn btn-sm btn-success">Unirse <i class="fas fa-video ms-1"></i></a></td></tr><tr><td>Marketing Digital (Sesión Q&A)</td><td>Viernes</td><td>17:00 - 18:00 (GMT-5)</td><td><span class="badge bg-danger">Sesión Pasada</span></td></tr><tr><td>Excel para Principiantes</td><td>Jueves</td><td>20:00 - 21:00 (GMT-5)</td><td><a href="#" class="btn btn-sm btn-success">Unirse <i class="fas fa-video ms-1"></i></a></td></tr></tbody></table></div>`;
+}
+
+function getCrearCursoHTML() {
+  return `
+    <h2 class="mb-4 text-primary-custom border-bottom pb-2 fw-bold"><i class="fas fa-plus-circle me-2"></i>Crear Nuevo Curso</h2>
+    <form id="crearCursoForm" class="bg-white p-4 rounded-3 shadow-sm">
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label for="cursoNombre" class="form-label fw-bold">Nombre del Curso</label>
+          <input type="text" class="form-control" id="cursoNombre" placeholder="Ej: Desarrollo Web con React" required>
+        </div>
+        <div class="col-md-6">
+          <label for="cursoCategoria" class="form-label fw-bold">Categoría</label>
+          <select class="form-select" id="cursoCategoria" required>
+            <option value="">Seleccionar categoría...</option>
+            <option value="Programación">Programación</option>
+            <option value="Diseño">Diseño</option>
+            <option value="Negocios">Negocios</option>
+            <option value="Marketing">Marketing</option>
+            <option value="Productividad">Productividad</option>
+            <option value="Arte">Arte</option>
+            <option value="Idiomas">Idiomas</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="cursoDescripcion" class="form-label fw-bold">Descripción</label>
+        <textarea class="form-control" id="cursoDescripcion" rows="4" placeholder="Describe el contenido y objetivos del curso..." required></textarea>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label for="cursoPrecio" class="form-label fw-bold">Precio (USD)</label>
+          <input type="number" class="form-control" id="cursoPrecio" placeholder="0.00" min="0" step="0.01" required>
+        </div>
+        <div class="col-md-6">
+          <label for="cursoNivel" class="form-label fw-bold">Nivel</label>
+          <select class="form-select" id="cursoNivel" required>
+            <option value="">Seleccionar nivel...</option>
+            <option value="Principiante">Principiante</option>
+            <option value="Intermedio">Intermedio</option>
+            <option value="Avanzado">Avanzado</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label for="cursoDuracion" class="form-label fw-bold">Duración (horas)</label>
+          <input type="number" class="form-control" id="cursoDuracion" placeholder="0" min="1" required>
+        </div>
+        <div class="col-md-6">
+          <label for="cursoCapacidad" class="form-label fw-bold">Capacidad máxima de estudiantes</label>
+          <input type="number" class="form-control" id="cursoCapacidad" placeholder="30" min="1" required>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="cursoTemario" class="form-label fw-bold">Temario (uno por línea)</label>
+        <textarea class="form-control" id="cursoTemario" rows="3" placeholder="Ej: Introducción a HTML&#10;CSS Avanzado&#10;JavaScript ES6" required></textarea>
+      </div>
+
+      <div class="alert alert-info" role="alert">
+        <i class="fas fa-info-circle me-2"></i>
+        Tu curso será publicado en la plataforma después de aprobación por el equipo de EduMentor.
+      </div>
+
+      <div class="d-flex gap-2">
+        <button type="submit" class="btn btn-warning fw-bold">
+          <i class="fas fa-paper-plane me-2"></i>Enviar para Aprobación
+        </button>
+        <button type="reset" class="btn btn-outline-secondary fw-bold">
+          <i class="fas fa-redo me-2"></i>Limpiar Formulario
+        </button>
+      </div>
+
+      <div id="crearCursoMessage" class="alert alert-info mt-3" style="display: none;"></div>
+    </form>
+  `;
+}
+
+function initCrearCurso() {
+  const form = document.getElementById('crearCursoForm');
+  if (!form) return;
+
+  // Verificar que el usuario sea Tutor ANTES de permitir crear cursos
+  const currentUserStr = localStorage.getItem('currentUser');
+  if (!currentUserStr) {
+    alert('No estás autenticado. Redirigiendo a login...');
+    window.location.href = 'reseccion.html';
+    return;
+  }
+
+  try {
+    const currentUser = JSON.parse(currentUserStr);
+    if (!currentUser.rol || currentUser.rol.toLowerCase() !== 'tutor') {
+      alert('⚠️ Solo los Tutores pueden crear cursos.');
+      window.location.href = 'perfil.html';
+      return;
+    }
+  } catch (e) {
+    console.error('Error al verificar rol:', e);
+    alert('Error al verificar tu rol. Redirigiendo...');
+    window.location.href = 'perfil.html';
+    return;
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const data = {
+      nombre: document.getElementById('cursoNombre').value,
+      descripcion: document.getElementById('cursoDescripcion').value,
+      categoria: document.getElementById('cursoCategoria').value,
+      precio: parseFloat(document.getElementById('cursoPrecio').value),
+      nivel: document.getElementById('cursoNivel').value,
+      duracion: parseInt(document.getElementById('cursoDuracion').value),
+      capacidad: parseInt(document.getElementById('cursoCapacidad').value),
+      temario: document.getElementById('cursoTemario').value.split('\n').filter(x => x.trim())
+    };
+
+    const token = localStorage.getItem('token');
+    if (!token) {
+      alert('No estás autenticado. Redirigiendo a login...');
+      window.location.href = 'reseccion.html';
+      return;
+    }
+
+    try {
+      const response = await fetch(`${API_BASE_URL}/Cursos/crear`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify(data)
+      });
+
+      const result = await response.json();
+      const msgDiv = document.getElementById('crearCursoMessage');
+
+      if (response.ok) {
+        msgDiv.textContent = '✓ Curso enviado para aprobación exitosamente. Te notificaremos cuando sea publicado.';
+        msgDiv.className = 'alert alert-success mt-3';
+        msgDiv.style.display = 'block';
+        form.reset();
+        setTimeout(() => { msgDiv.style.display = 'none'; }, 5000);
+      } else {
+        msgDiv.textContent = `❌ Error: ${result.message || 'No se pudo crear el curso'}`;
+        msgDiv.className = 'alert alert-danger mt-3';
+        msgDiv.style.display = 'block';
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      const msgDiv = document.getElementById('crearCursoMessage');
+      msgDiv.textContent = '❌ Error de conexión con el servidor.';
+      msgDiv.className = 'alert alert-danger mt-3';
+      msgDiv.style.display = 'block';
+    }
+  });
 }
 
 // ============================================
@@ -348,7 +668,8 @@ function switchContent(viewName) {
     historial: { html: getHistorialHTML, init: initHistorialFilters },
     cursos: { html: getCursosHTML, init: () => {} },
     materiales: { html: getMaterialesHTML, init: () => {} },
-    horarios: { html: getHorariosHTML, init: () => {} }
+    horarios: { html: getHorariosHTML, init: () => {} },
+    crearCurso: { html: getCrearCursoHTML, init: initCrearCurso }
   };
   const view = views[viewName];
   if (!view) return;
@@ -383,6 +704,9 @@ async function init() {
   } catch (e) {
     console.error('Error en loadUserData:', e);
   }
+
+  // Inicializar SignalR si hay token
+  try { await initSignalR(); } catch (e) { console.warn('SignalR init falló:', e); }
   
   // Esperar un poco más después de cargar usuario
   await new Promise(resolve => setTimeout(resolve, 300));

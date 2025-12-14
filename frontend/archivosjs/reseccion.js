@@ -83,11 +83,19 @@ document.addEventListener('DOMContentLoaded', function () {
               } catch (e) {
                 console.warn('⚠️ Error al guardar currentUser en localStorage:', e);
               }
-              console.log('⏳ Redirigiendo a perfil.html en 800ms...');
+                console.log('⏳ Redirigiendo según rol en 800ms...');
               // Dar más tiempo para asegurar que todo esté guardado
               setTimeout(() => { 
-                console.log('🔄 Redirigiendo a perfil.html...');
-                window.location.href = 'perfil.html'; 
+                console.log('🔄 Redirigiendo según rol...');
+                try {
+                  if (data.user && (data.user.rol || '').toLowerCase() === 'admin') {
+                    window.location.href = 'perfiladmin.html';
+                  } else {
+                    window.location.href = 'perfil.html';
+                  }
+                } catch (e) {
+                  window.location.href = 'perfil.html';
+                }
               }, 800);
               return;
             }

@@ -1,0 +1,151 @@
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClases/obj/Debug/net9.0/TutoriasDeClases.csproj.AssemblyReference.cache
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClases/obj/Debug/net9.0/TutoriasDeClases.GeneratedMSBuildEditorConfig.editorconfig
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClases/obj/Debug/net9.0/TutoriasDeClases.AssemblyInfoInputs.cache
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClases/obj/Debug/net9.0/TutoriasDeClases.AssemblyInfo.cs
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClases/obj/Debug/net9.0/TutoriasDeClases.csproj.CoreCompileInputs.cache
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClases/bin/Debug/net9.0/TutoriasDeClases.exe
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClases/bin/Debug/net9.0/TutoriasDeClases.deps.json
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClases/bin/Debug/net9.0/TutoriasDeClases.runtimeconfig.json
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClases/bin/Debug/net9.0/TutoriasDeClases.dll
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClases/bin/Debug/net9.0/TutoriasDeClases.pdb
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClases/bin/Debug/net9.0/DnsClient.dll
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClases/bin/Debug/net9.0/MongoDB.Bson.dll
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClases/bin/Debug/net9.0/MongoDB.Driver.dll
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClases/bin/Debug/net9.0/SharpCompress.dll
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClases/bin/Debug/net9.0/Snappier.dll
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClases/bin/Debug/net9.0/ZstdSharp.dll
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClases/obj/Debug/net9.0/Tutorias.1AC126DF.Up2Date
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClases/obj/Debug/net9.0/TutoriasDeClases.dll
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClases/obj/Debug/net9.0/refint/TutoriasDeClases.dll
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClases/obj/Debug/net9.0/TutoriasDeClases.pdb
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClases/obj/Debug/net9.0/TutoriasDeClases.genruntimeconfig.cache
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClases/obj/Debug/net9.0/ref/TutoriasDeClases.dll
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClases/obj/Debug/net9.0/rpswa.dswa.cache.json
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClases/obj/Debug/net9.0/TutoriasDeClases.MvcApplicationPartsAssemblyInfo.cache
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClases/bin/Debug/net9.0/TutoriasDeClases.staticwebassets.endpoints.json
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClases/obj/Debug/net9.0/rjimswa.dswa.cache.json
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClases/obj/Debug/net9.0/rjsmrazor.dswa.cache.json
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClases/obj/Debug/net9.0/rjsmcshtml.dswa.cache.json
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClases/obj/Debug/net9.0/scopedcss/bundle/TutoriasDeClases.styles.css
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClases/obj/Debug/net9.0/staticwebassets.build.json
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClases/obj/Debug/net9.0/staticwebassets.build.json.cache
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClases/obj/Debug/net9.0/staticwebassets.development.json
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClases/obj/Debug/net9.0/staticwebassets.build.endpoints.json
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClases/bin/Debug/net9.0/appsettings.json
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClases/bin/Debug/net9.0/BCrypt.Net-Next.dll
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClases/bin/Debug/net9.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClases/bin/Debug/net9.0/Microsoft.IdentityModel.Abstractions.dll
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClases/bin/Debug/net9.0/Microsoft.IdentityModel.JsonWebTokens.dll
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClases/bin/Debug/net9.0/Microsoft.IdentityModel.Logging.dll
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClases/bin/Debug/net9.0/Microsoft.IdentityModel.Protocols.dll
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClases/bin/Debug/net9.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClases/bin/Debug/net9.0/Microsoft.IdentityModel.Tokens.dll
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClases/bin/Debug/net9.0/System.IdentityModel.Tokens.Jwt.dll
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClasesbackend/bin/Debug/net9.0/appsettings.json
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClasesbackend/bin/Debug/net9.0/TutoriasDeClases.staticwebassets.endpoints.json
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClasesbackend/bin/Debug/net9.0/TutoriasDeClases.exe
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClasesbackend/bin/Debug/net9.0/TutoriasDeClases.deps.json
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClasesbackend/bin/Debug/net9.0/TutoriasDeClases.runtimeconfig.json
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClasesbackend/bin/Debug/net9.0/TutoriasDeClases.dll
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClasesbackend/bin/Debug/net9.0/TutoriasDeClases.pdb
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClasesbackend/bin/Debug/net9.0/BCrypt.Net-Next.dll
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClasesbackend/bin/Debug/net9.0/DnsClient.dll
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClasesbackend/bin/Debug/net9.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClasesbackend/bin/Debug/net9.0/Microsoft.IdentityModel.Abstractions.dll
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClasesbackend/bin/Debug/net9.0/Microsoft.IdentityModel.JsonWebTokens.dll
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClasesbackend/bin/Debug/net9.0/Microsoft.IdentityModel.Logging.dll
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClasesbackend/bin/Debug/net9.0/Microsoft.IdentityModel.Protocols.dll
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClasesbackend/bin/Debug/net9.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClasesbackend/bin/Debug/net9.0/Microsoft.IdentityModel.Tokens.dll
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClasesbackend/bin/Debug/net9.0/MongoDB.Bson.dll
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClasesbackend/bin/Debug/net9.0/MongoDB.Driver.dll
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClasesbackend/bin/Debug/net9.0/SharpCompress.dll
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClasesbackend/bin/Debug/net9.0/Snappier.dll
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClasesbackend/bin/Debug/net9.0/System.IdentityModel.Tokens.Jwt.dll
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClasesbackend/bin/Debug/net9.0/ZstdSharp.dll
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClasesbackend/obj/Debug/net9.0/TutoriasDeClases.csproj.AssemblyReference.cache
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClasesbackend/obj/Debug/net9.0/rpswa.dswa.cache.json
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClasesbackend/obj/Debug/net9.0/TutoriasDeClases.GeneratedMSBuildEditorConfig.editorconfig
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClasesbackend/obj/Debug/net9.0/TutoriasDeClases.AssemblyInfoInputs.cache
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClasesbackend/obj/Debug/net9.0/TutoriasDeClases.AssemblyInfo.cs
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClasesbackend/obj/Debug/net9.0/TutoriasDeClases.csproj.CoreCompileInputs.cache
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClasesbackend/obj/Debug/net9.0/TutoriasDeClases.MvcApplicationPartsAssemblyInfo.cache
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClasesbackend/obj/Debug/net9.0/rjimswa.dswa.cache.json
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClasesbackend/obj/Debug/net9.0/rjsmrazor.dswa.cache.json
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClasesbackend/obj/Debug/net9.0/rjsmcshtml.dswa.cache.json
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClasesbackend/obj/Debug/net9.0/scopedcss/bundle/TutoriasDeClases.styles.css
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClasesbackend/obj/Debug/net9.0/staticwebassets.build.json
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClasesbackend/obj/Debug/net9.0/staticwebassets.build.json.cache
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClasesbackend/obj/Debug/net9.0/staticwebassets.development.json
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClasesbackend/obj/Debug/net9.0/staticwebassets.build.endpoints.json
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClasesbackend/obj/Debug/net9.0/Tutorias.1AC126DF.Up2Date
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClasesbackend/obj/Debug/net9.0/TutoriasDeClases.dll
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClasesbackend/obj/Debug/net9.0/refint/TutoriasDeClases.dll
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClasesbackend/obj/Debug/net9.0/TutoriasDeClases.pdb
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClasesbackend/obj/Debug/net9.0/TutoriasDeClases.genruntimeconfig.cache
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClasesbackend/obj/Debug/net9.0/ref/TutoriasDeClases.dll
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClasesbackend/bin/Debug/net9.0/publish/publish/web.config
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClasesbackend/bin/Debug/net9.0/publish/web.config
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClasesbackend/bin/Debug/net9.0/publish/appsettings.json
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClasesbackend/bin/Debug/net9.0/publish/publish/appsettings.json
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClasesbackend/bin/Debug/net9.0/publish/publish/TutoriasDeClases.deps.json
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClasesbackend/bin/Debug/net9.0/publish/publish/TutoriasDeClases.runtimeconfig.json
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClasesbackend/bin/Debug/net9.0/publish/publish/TutoriasDeClases.staticwebassets.endpoints.json
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClasesbackend/bin/Debug/net9.0/publish/TutoriasDeClases.deps.json
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClasesbackend/bin/Debug/net9.0/publish/TutoriasDeClases.runtimeconfig.json
+C:/tareas/PROYECTO SOFTWARE2/TutoriasDeClasesbackend/bin/Debug/net9.0/publish/TutoriasDeClases.staticwebassets.endpoints.json
+/Users/mike/Desktop/Edumentor/correciones4/correccion5/TutoriasDeClasesbackend/bin/Debug/net9.0/appsettings.json
+/Users/mike/Desktop/Edumentor/correciones4/correccion5/TutoriasDeClasesbackend/bin/Debug/net9.0/publish/publish/web.config
+/Users/mike/Desktop/Edumentor/correciones4/correccion5/TutoriasDeClasesbackend/bin/Debug/net9.0/publish/web.config
+/Users/mike/Desktop/Edumentor/correciones4/correccion5/TutoriasDeClasesbackend/bin/Debug/net9.0/publish/appsettings.json
+/Users/mike/Desktop/Edumentor/correciones4/correccion5/TutoriasDeClasesbackend/bin/Debug/net9.0/publish/publish/appsettings.json
+/Users/mike/Desktop/Edumentor/correciones4/correccion5/TutoriasDeClasesbackend/bin/Debug/net9.0/publish/publish/TutoriasDeClases.deps.json
+/Users/mike/Desktop/Edumentor/correciones4/correccion5/TutoriasDeClasesbackend/bin/Debug/net9.0/publish/publish/TutoriasDeClases.runtimeconfig.json
+/Users/mike/Desktop/Edumentor/correciones4/correccion5/TutoriasDeClasesbackend/bin/Debug/net9.0/publish/publish/TutoriasDeClases.staticwebassets.endpoints.json
+/Users/mike/Desktop/Edumentor/correciones4/correccion5/TutoriasDeClasesbackend/bin/Debug/net9.0/publish/TutoriasDeClases.deps.json
+/Users/mike/Desktop/Edumentor/correciones4/correccion5/TutoriasDeClasesbackend/bin/Debug/net9.0/publish/TutoriasDeClases.runtimeconfig.json
+/Users/mike/Desktop/Edumentor/correciones4/correccion5/TutoriasDeClasesbackend/bin/Debug/net9.0/publish/TutoriasDeClases.staticwebassets.endpoints.json
+/Users/mike/Desktop/Edumentor/correciones4/correccion5/TutoriasDeClasesbackend/bin/Debug/net9.0/TutoriasDeClases.staticwebassets.endpoints.json
+/Users/mike/Desktop/Edumentor/correciones4/correccion5/TutoriasDeClasesbackend/bin/Debug/net9.0/TutoriasDeClases
+/Users/mike/Desktop/Edumentor/correciones4/correccion5/TutoriasDeClasesbackend/bin/Debug/net9.0/TutoriasDeClases.deps.json
+/Users/mike/Desktop/Edumentor/correciones4/correccion5/TutoriasDeClasesbackend/bin/Debug/net9.0/TutoriasDeClases.runtimeconfig.json
+/Users/mike/Desktop/Edumentor/correciones4/correccion5/TutoriasDeClasesbackend/bin/Debug/net9.0/TutoriasDeClases.dll
+/Users/mike/Desktop/Edumentor/correciones4/correccion5/TutoriasDeClasesbackend/bin/Debug/net9.0/TutoriasDeClases.pdb
+/Users/mike/Desktop/Edumentor/correciones4/correccion5/TutoriasDeClasesbackend/bin/Debug/net9.0/BCrypt.Net-Next.dll
+/Users/mike/Desktop/Edumentor/correciones4/correccion5/TutoriasDeClasesbackend/bin/Debug/net9.0/DnsClient.dll
+/Users/mike/Desktop/Edumentor/correciones4/correccion5/TutoriasDeClasesbackend/bin/Debug/net9.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/Users/mike/Desktop/Edumentor/correciones4/correccion5/TutoriasDeClasesbackend/bin/Debug/net9.0/Microsoft.IdentityModel.Abstractions.dll
+/Users/mike/Desktop/Edumentor/correciones4/correccion5/TutoriasDeClasesbackend/bin/Debug/net9.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/Users/mike/Desktop/Edumentor/correciones4/correccion5/TutoriasDeClasesbackend/bin/Debug/net9.0/Microsoft.IdentityModel.Logging.dll
+/Users/mike/Desktop/Edumentor/correciones4/correccion5/TutoriasDeClasesbackend/bin/Debug/net9.0/Microsoft.IdentityModel.Protocols.dll
+/Users/mike/Desktop/Edumentor/correciones4/correccion5/TutoriasDeClasesbackend/bin/Debug/net9.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/Users/mike/Desktop/Edumentor/correciones4/correccion5/TutoriasDeClasesbackend/bin/Debug/net9.0/Microsoft.IdentityModel.Tokens.dll
+/Users/mike/Desktop/Edumentor/correciones4/correccion5/TutoriasDeClasesbackend/bin/Debug/net9.0/MongoDB.Bson.dll
+/Users/mike/Desktop/Edumentor/correciones4/correccion5/TutoriasDeClasesbackend/bin/Debug/net9.0/MongoDB.Driver.dll
+/Users/mike/Desktop/Edumentor/correciones4/correccion5/TutoriasDeClasesbackend/bin/Debug/net9.0/SharpCompress.dll
+/Users/mike/Desktop/Edumentor/correciones4/correccion5/TutoriasDeClasesbackend/bin/Debug/net9.0/Snappier.dll
+/Users/mike/Desktop/Edumentor/correciones4/correccion5/TutoriasDeClasesbackend/bin/Debug/net9.0/System.IdentityModel.Tokens.Jwt.dll
+/Users/mike/Desktop/Edumentor/correciones4/correccion5/TutoriasDeClasesbackend/bin/Debug/net9.0/ZstdSharp.dll
+/Users/mike/Desktop/Edumentor/correciones4/correccion5/TutoriasDeClasesbackend/obj/Debug/net9.0/TutoriasDeClases.csproj.AssemblyReference.cache
+/Users/mike/Desktop/Edumentor/correciones4/correccion5/TutoriasDeClasesbackend/obj/Debug/net9.0/rpswa.dswa.cache.json
+/Users/mike/Desktop/Edumentor/correciones4/correccion5/TutoriasDeClasesbackend/obj/Debug/net9.0/TutoriasDeClases.GeneratedMSBuildEditorConfig.editorconfig
+/Users/mike/Desktop/Edumentor/correciones4/correccion5/TutoriasDeClasesbackend/obj/Debug/net9.0/TutoriasDeClases.AssemblyInfoInputs.cache
+/Users/mike/Desktop/Edumentor/correciones4/correccion5/TutoriasDeClasesbackend/obj/Debug/net9.0/TutoriasDeClases.AssemblyInfo.cs
+/Users/mike/Desktop/Edumentor/correciones4/correccion5/TutoriasDeClasesbackend/obj/Debug/net9.0/TutoriasDeClases.csproj.CoreCompileInputs.cache
+/Users/mike/Desktop/Edumentor/correciones4/correccion5/TutoriasDeClasesbackend/obj/Debug/net9.0/TutoriasDeClases.MvcApplicationPartsAssemblyInfo.cache
+/Users/mike/Desktop/Edumentor/correciones4/correccion5/TutoriasDeClasesbackend/obj/Debug/net9.0/TutoriasDeClases.sourcelink.json
+/Users/mike/Desktop/Edumentor/correciones4/correccion5/TutoriasDeClasesbackend/obj/Debug/net9.0/rjimswa.dswa.cache.json
+/Users/mike/Desktop/Edumentor/correciones4/correccion5/TutoriasDeClasesbackend/obj/Debug/net9.0/rjsmrazor.dswa.cache.json
+/Users/mike/Desktop/Edumentor/correciones4/correccion5/TutoriasDeClasesbackend/obj/Debug/net9.0/rjsmcshtml.dswa.cache.json
+/Users/mike/Desktop/Edumentor/correciones4/correccion5/TutoriasDeClasesbackend/obj/Debug/net9.0/scopedcss/bundle/TutoriasDeClases.styles.css
+/Users/mike/Desktop/Edumentor/correciones4/correccion5/TutoriasDeClasesbackend/obj/Debug/net9.0/staticwebassets.build.json
+/Users/mike/Desktop/Edumentor/correciones4/correccion5/TutoriasDeClasesbackend/obj/Debug/net9.0/staticwebassets.build.json.cache
+/Users/mike/Desktop/Edumentor/correciones4/correccion5/TutoriasDeClasesbackend/obj/Debug/net9.0/staticwebassets.development.json
+/Users/mike/Desktop/Edumentor/correciones4/correccion5/TutoriasDeClasesbackend/obj/Debug/net9.0/staticwebassets.build.endpoints.json
+/Users/mike/Desktop/Edumentor/correciones4/correccion5/TutoriasDeClasesbackend/obj/Debug/net9.0/swae.build.ex.cache
+/Users/mike/Desktop/Edumentor/correciones4/correccion5/TutoriasDeClasesbackend/obj/Debug/net9.0/Tutorias.1AC126DF.Up2Date
+/Users/mike/Desktop/Edumentor/correciones4/correccion5/TutoriasDeClasesbackend/obj/Debug/net9.0/TutoriasDeClases.dll
+/Users/mike/Desktop/Edumentor/correciones4/correccion5/TutoriasDeClasesbackend/obj/Debug/net9.0/refint/TutoriasDeClases.dll
+/Users/mike/Desktop/Edumentor/correciones4/correccion5/TutoriasDeClasesbackend/obj/Debug/net9.0/TutoriasDeClases.pdb
+/Users/mike/Desktop/Edumentor/correciones4/correccion5/TutoriasDeClasesbackend/obj/Debug/net9.0/TutoriasDeClases.genruntimeconfig.cache
+/Users/mike/Desktop/Edumentor/correciones4/correccion5/TutoriasDeClasesbackend/obj/Debug/net9.0/ref/TutoriasDeClases.dll

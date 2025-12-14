@@ -77,7 +77,12 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             const rol = isTutorSelected ? 'Tutor' : 'Alumno';
-
+            // Verificar aceptación de términos
+            const accepted = document.getElementById('acceptTermsCheckbox')?.checked;
+            if (!accepted) {
+                alert('Debe aceptar los Términos y Condiciones antes de crear una cuenta.');
+                return;
+            }
 
             // 2. Validaciones simples
             if (!email || !password || !nombre || !apellido || !edad || !especializacion) {
@@ -108,6 +113,45 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // 4. Llamar a la función de registro
             registerUser(userData);
+        });
+    }
+
+    // Modal de términos: inyectar contenido y manejar aceptación
+    const termsLink = document.getElementById('terms-link');
+    if (termsLink) {
+        termsLink.addEventListener('click', function (e) {
+            e.preventDefault();
+            const body = document.getElementById('termsModalBody');
+            if (body) {
+                body.innerHTML = `
+                    <p><strong>EduMentor – Potencia tu perfil laboral</strong><br><small>Última actualización: 26 de noviembre de 2025</small></p>
+                    <h6>1. Introducción</h6>
+                    <p>Bienvenido/a a EduMentor ("la Plataforma"). Al acceder o utilizar EduMentor, aceptas estos Términos y Condiciones.</p>
+                    <h6>2. Servicios ofrecidos</h6>
+                    <p>EduMentor proporciona cursos en línea, materiales, certificados y soporte técnico. Servicios dirigidos a mayores de 16 años.</p>
+                    <h6>3. Registro y cuenta de usuario</h6>
+                    <p>Debes proporcionar información veraz. Eres responsable de tu contraseña. EduMentor puede suspender cuentas que violen estos términos.</p>
+                    <h6>4. Pagos y reembolsos</h6>
+                    <p>Pagos seguros; no se ofrecen reembolsos salvo excepciones técnicas.</p>
+                    <h6>5. Propiedad intelectual</h6>
+                    <p>El contenido es propiedad de EduMentor o licenciantes. Está prohibida la reproducción no autorizada.</p>
+                    <h6>6. Limitación de responsabilidad</h6>
+                    <p>EduMentor no garantiza acceso ininterrumpido ni resultados laborales.</p>
+                    <h6>7. Modificaciones</h6>
+                    <p>Nos reservamos el derecho de actualizar estos Términos.</p>
+                    <h6>8. Legislación aplicable</h6>
+                    <p>Estos Términos se rigen por las leyes de Ecuador.</p>
+                `;
+            }
+            const modal = new bootstrap.Modal(document.getElementById('termsModal'));
+            modal.show();
+
+            // Al aceptar, marcar checkbox y cerrar
+            document.getElementById('acceptTermsBtn')?.addEventListener('click', function () {
+                const cb = document.getElementById('acceptTermsCheckbox');
+                if (cb) cb.checked = true;
+                modal.hide();
+            });
         });
     }
 
@@ -175,7 +219,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
                 console.log('✓ Token JWT y usuario guardados');
                 showMessage('Sesión iniciada correctamente. Redirigiendo a tu perfil...', false);
-                setTimeout(() => { window.location.href = './perfil.html'; }, 700);
+                setTimeout(() => {
+                    try {
+                        if (loginResult.user && (loginResult.user.rol || '').toLowerCase() === 'admin') {
+                            window.location.href = './perfiladmin.html';
+                        } else {
+                            window.location.href = './perfil.html';
+                        }
+                    } catch (e) {
+                        window.location.href = './perfil.html';
+                    }
+                }, 700);
             } else {
                 // Si login falla, redirigir de todas formas con currentUser (fallback)
                 console.warn('⚠️ Auto-login falló:', loginResult.message || 'Sin detalles');

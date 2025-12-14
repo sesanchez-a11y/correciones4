@@ -7,14 +7,13 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
-    background-color: #f4f4f4; /* Fondo gris claro */
+    background-color: var(--bg-light, #f4f4f4); /* Fondo gris claro */
     overflow-x: hidden;
     min-height: 100vh;
 }
-
-/* 1. Encabezado superior negro */
+/* 1. Encabezado superior (top-bar) */
 .top-bar {
-    background-color: #333;
+    background-color: var(--text-dark, #333) !important;
     color: white;
     padding: 8px 20px;
     display: flex;
@@ -30,9 +29,9 @@ body {
     gap: 5px;
 }
 
-/* 2. Barra de navegación amarilla */
+/* 2. Barra de navegación (coincide con tienda.css) */
 .nav-bar {
-    background-color: #F5BE6B; /* Color principal */
+    background-color: var(--warning, #F5BE6B) !important;
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
@@ -54,7 +53,7 @@ body {
     gap: 10px;
     font-weight: bold;
     font-size: 18px;
-    color: #333;
+    color: var(--text-dark, #333);
 }
 
 .logo img {
@@ -69,7 +68,7 @@ body {
     transform: translate(-50%, -50%);
     font-size: 14px;
     font-weight: bold;
-    color: #555;
+    color: var(--text-light, #555);
     display: flex;
     align-items: center;
     gap: 5px;
@@ -88,14 +87,14 @@ body {
 }
 
 .nav-links a {
-    color: #333;
+    color: var(--text-dark, #333);
     text-decoration: none;
     font-weight: bold;
     padding: 5px 10px;
 }
 
 .nav-links a.active {
-    border-bottom: 2px solid #333;
+    border-bottom: 2px solid var(--primary, #1264b6);
     background-color: rgba(0, 0, 0, 0.05);
 }
 
@@ -103,7 +102,7 @@ body {
     width: 35px;
     height: 35px;
     border-radius: 50%;
-    background-color: #333;
+    background-color: var(--text-dark, #333);
     color: white;
     display: flex;
     justify-content: center;
@@ -118,7 +117,7 @@ body {
     padding: 20px 5%;
     max-width: 1400px;
     margin: 0 auto;
-    background-color: #fff;
+    background-color: var(--bg-white, #fff);
     min-height: calc(100vh - 100px);
     box-shadow: 0 0 10px rgba(0,0,0,0.05);
 }
@@ -141,18 +140,18 @@ body {
 
 .filter-row .label {
     font-size: 14px;
-    color: #555;
+    color: var(--text-light, #555);
     margin-right: 5px;
     flex-shrink: 0;
 }
 
 .filter-row select {
     padding: 8px 10px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--border-color, #ccc);
     border-radius: 5px;
     font-size: 14px;
-    color: #333;
-    background-color: #fff;
+    color: var(--text-dark, #333);
+    background-color: var(--bg-white, #fff);
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -162,11 +161,11 @@ body {
 
 .filter-row input[type="text"] {
     padding: 8px 10px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--border-color, #ccc);
     border-radius: 5px;
     font-size: 14px;
-    color: #333;
-    background-color: #fff;
+    color: var(--text-dark, #333);
+    background-color: var(--bg-white, #fff);
     flex-grow: 2;
     max-width: 300px;
 }
@@ -175,7 +174,7 @@ body {
 .available-teachers-title {
     font-size: 24px;
     font-weight: bold;
-    color: #333;
+    color: var(--text-dark, #333);
     margin-bottom: 30px;
     margin-top: 20px;
 }
@@ -189,10 +188,10 @@ body {
 
 /* Tarjeta del Profesor */
 .teacher-card {
-    background-color: #fff;
+    background-color: var(--bg-white, #fff);
     padding: 25px;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
     display: flex;
     gap: 25px;
     max-width: 700px;
@@ -205,7 +204,7 @@ body {
     border-radius: 50%;
     object-fit: cover;
     flex-shrink: 0;
-    border: 3px solid #F5BE6B;
+    border: 3px solid var(--warning, #F5BE6B);
 }
 
 .teacher-details {
@@ -222,7 +221,7 @@ body {
 .teacher-name-flag h3 {
     font-size: 20px;
     font-weight: bold;
-    color: #333;
+    color: var(--text-dark, #333);
 }
 
 .teacher-name-flag .flag {
@@ -234,7 +233,7 @@ body {
 
 .teacher-language {
     font-size: 14px;
-    color: #555;
+    color: var(--text-light, #555);
     margin-bottom: 10px;
 }
 
@@ -242,7 +241,7 @@ body {
     display: flex;
     gap: 15px;
     font-size: 13px;
-    color: #777;
+    color: var(--text-muted, #777);
     margin-bottom: 15px;
 }
 
@@ -254,24 +253,24 @@ body {
 }
 
 .teacher-rating .stars {
-    color: gold;
+    color: var(--warning, gold);
     font-size: 16px;
 }
 
 .teacher-rating .reviews {
     font-size: 13px;
-    color: #777;
+    color: var(--text-muted, #777);
 }
 
 .teacher-bio {
     font-size: 14px;
-    color: #444;
+    color: var(--text-dark, #444);
     line-height: 1.5;
     margin-bottom: 15px;
 }
 
 .read-more {
-    color: #F5BE6B;
+    color: var(--warning, #F5BE6B);
     text-decoration: none;
     font-weight: bold;
     font-size: 14px;
@@ -287,7 +286,7 @@ body {
 .teacher-price {
     font-size: 18px;
     font-weight: bold;
-    color: #333;
+    color: var(--text-dark, #333);
     margin-bottom: 10px;
 }
 
@@ -300,16 +299,16 @@ body {
 .teacher-actions .price-container .price-text {
     font-size: 18px;
     font-weight: bold;
-    color: #333;
+    color: var(--text-dark, #333);
 }
 
 .teacher-actions .price-container .per-hour-text {
     font-size: 12px;
-    color: #777;
+    color: var(--text-muted, #777);
 }
 
 .reserve-button {
-    background-color: #9B59B6;
+    background-color: var(--primary, #1264b6);
     color: white;
     padding: 10px 20px;
     border: none;
@@ -320,10 +319,10 @@ body {
 }
 
 .view-schedule-button {
-    background-color: #eee;
-    color: #333;
+    background-color: var(--bg-white, #eee);
+    color: var(--text-dark, #333);
     padding: 10px 20px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--border-color, #ccc);
     border-radius: 5px;
     font-weight: bold;
     cursor: pointer;
@@ -373,10 +372,10 @@ body {
 
 /* Botón "Mandar mensaje" */
 .send-message-button {
-    background-color: #eee;
-    color: #333;
+    background-color: var(--bg-white, #eee);
+    color: var(--text-dark, #333);
     padding: 10px 20px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--border-color, #ccc);
     border-radius: 5px;
     font-weight: bold;
     cursor: pointer;
@@ -424,4 +423,15 @@ body {
         height: auto;
         aspect-ratio: 16 / 9;
     }
+}
+
+/* Forzar estilo de botones para que coincidan con tienda.css cuando bootstrap provea otras reglas */
+.btn-primary-custom {
+    background-color: var(--primary) !important;
+    color: white !important;
+    border: none !important;
+}
+
+.btn-primary-custom:hover {
+    background-color: #0d4a8f !important;
 }

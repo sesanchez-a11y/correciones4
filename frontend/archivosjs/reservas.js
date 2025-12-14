@@ -49,15 +49,75 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // 6. Filtrar por búsqueda (simulación básica)
+    // 6. Filtrar profesores dinámicamente
     const searchInput = document.getElementById('buscar');
-    if (searchInput) {
-        searchInput.addEventListener('keyup', function(e) {
-            if (e.key === 'Enter') {
-                alert(`Buscando: "${this.value}"...`);
-                // Aquí podrías filtrar los profesores dinámicamente
+    const selectClase = document.getElementById('clase');
+    const selectPrecio = document.getElementById('precio');
+    const selectPais = document.getElementById('pais');
+    const selectDispon = document.getElementById('disponibilidad');
+
+    const teacherItems = Array.from(document.querySelectorAll('.teacher-item'));
+
+    function parsePriceRange(value) {
+        // Intentar extraer dos números de la cadena "10 a 20 $" (puede variar)
+        const nums = value.match(/\d+/g);
+        if (!nums || nums.length < 2) return null;
+        return { min: parseInt(nums[0], 10), max: parseInt(nums[1], 10) };
+    }
+
+    function matchesPrice(item, priceRange) {
+        if (!priceRange) return true;
+        const price = parseFloat(item.getAttribute('data-price') || '0');
+        return price >= priceRange.min && price <= priceRange.max;
+    }
+
+    function matchesText(item, text) {
+        if (!text) return true;
+        const t = text.trim().toLowerCase();
+        const name = (item.getAttribute('data-name') || '').toLowerCase();
+        const subject = (item.getAttribute('data-subject') || '').toLowerCase();
+        return name.includes(t) || subject.includes(t);
+    }
+
+    function matchesPais(item, paisValue) {
+        if (!paisValue || paisValue.toLowerCase().includes('cualquier')) return true;
+        const p = (item.getAttribute('data-country') || '').toLowerCase();
+        return p === paisValue.toLowerCase();
+    }
+
+    function filterTeachers() {
+        const q = searchInput ? searchInput.value : '';
+        const clase = selectClase ? selectClase.value : '';
+        const precioVal = selectPrecio ? selectPrecio.value : '';
+        const paisVal = selectPais ? selectPais.value : '';
+
+        const priceRange = parsePriceRange(precioVal);
+
+        teacherItems.forEach(item => {
+            const byText = matchesText(item, q);
+            const byPrice = matchesPrice(item, priceRange);
+            const byPais = matchesPais(item, paisVal);
+
+            if (byText && byPrice && byPais) {
+                item.style.display = '';
+            } else {
+                item.style.display = 'none';
             }
         });
     }
+
+    if (searchInput) {
+        let debounce;
+        searchInput.addEventListener('keyup', function(e) {
+            clearTimeout(debounce);
+            debounce = setTimeout(filterTeachers, 220);
+        });
+    }
+    [selectClase, selectPrecio, selectPais, selectDispon].forEach(el => {
+        if (el) el.addEventListener('change', filterTeachers);
+    });
+
+    // Ejecutar filtro inicial para ocultar nada
+    filterTeachers();
 
 });

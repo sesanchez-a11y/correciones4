@@ -109,13 +109,19 @@ body {
     background-color: #007bff;
     border-color: #007bff;
     font-weight: bold;
-    padding: 12px 0;
-    font-size: 1.1rem;
+    padding: 16px 0;
+    font-size: 1.25rem;
+    border-radius: 50px;
+    box-shadow: 0 4px 16px rgba(0,123,255,0.10);
+    transition: background 0.2s, box-shadow 0.2s;
+    letter-spacing: 1px;
 }
 
-.btn-primary:hover {
+.btn-primary:hover, .btn-primary:focus {
     background-color: #0056b3;
     border-color: #0056b3;
+    box-shadow: 0 6px 24px rgba(0,86,179,0.18);
+    outline: none;
 }
 
 /* Icono WhatsApp fijo */

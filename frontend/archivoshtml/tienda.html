@@ -39,7 +39,7 @@
                 </a>
             </div>
 
-            <!-- Botón de colapso de menú principal (INICIO, TIENDA, AYUDA) -->
+           <!-- Botón de colapso de menú principal (INICIO, TIENDA, AYUDA) -->
             <button class="navbar-toggler ms-auto d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -57,21 +57,29 @@
                 <li class="nav-item me-3">
                     <a class="nav-link position-relative" href="#" title="Notificaciones">
                         Notificaciones
-                       <!-- <span class="position-absolute badge rounded-pill bg-danger">3</span>-->
+                         <!--<span class="position-absolute badge rounded-pill bg-danger">3</span>-->
+                    </a>
+                </li>
+                
+                <!-- Botón de DOCENTES (Texto + Contador) -->
+                <li class="nav-item me-4">
+                    <a class="nav-link position-relative active" href="./reservas.html" title="Tienda de Profesores">
+                        DOCENTES
+                        <!-- <span class="position-absolute badge rounded-pill bg-danger">1</span>-->
                     </a>
                 </li>
 
                 <!-- Botón de Tienda (Texto + Contador) -->
                 <li class="nav-item me-4">
-                    <a class="nav-link position-relative active" href="./tienda.html" title="Tienda de Profesores">
+                    <a class="nav-link position-relative" href="./tienda.html" title="Tienda de Profesores">
                         Tienda
-                        <!-- <span class="position-absolute badge rounded-pill bg-danger">1</span>-->
+                        <!--<span class="position-absolute badge rounded-pill bg-danger">1</span>-->
                     </a>
                 </li>
                 
                 <!-- Menú desplegable "Perfil" (Icono + Texto) -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle ps-2 pe-3" href="#" id="perfilDropdown" role="button"
+                    <a class="nav-link dropdown-toggle active ps-2 pe-3" href="#" id="perfilDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fas fa-user-circle me-1"></i> Perfil
                     </a>
@@ -88,7 +96,21 @@
             
     </nav>
 
-    <!-- Sección de Filtros -->
+    <!-- Sección de Cursos Aprobados (Nuevos desde BD) -->
+    <section class="cursos-aprobados-section bg-light py-5">
+        <div class="container-fluid px-4">
+            <h2 class="text-primary-custom fw-bold mb-4"><i class="fas fa-star me-2"></i>Cursos Disponibles en Tienda</h2>
+            <div id="cursosContainer">
+                <div class="text-center">
+                    <div class="spinner-border text-primary" role="status">
+                       <!-- <span class="visually-hidden">Cargando cursos...</span>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Servicios Anteriores -->
     <section class="filters-section">
         <div class="container-fluid px-4 py-4">
             <div class="row mb-3">
@@ -166,7 +188,7 @@
                         <div class="card-content">
                             <!-- Foto Profesor -->
                             <div class="professor-header">
-                                <img src="https://via.placeholder.com/80x80?text=Luis" alt="Luis.M" class="professor-photo">
+                                <img src="../img/docente1.jpg" alt="Luis.M" class="professor-photo">
                                 <div class="professor-name-info">
                                     <h5>Luis.M <span class="flag">🇪🇨</span></h5>
                                     <p class="nationality">Español</p>
@@ -193,7 +215,7 @@
 
                             <!-- Botones -->
                             <div class="card-actions">
-                                <a href="reservas.html" class="btn btn-primary-custom btn-sm w-100 mb-2">Puedes Reservar una clase aquí</a>
+                                <a href="infoprofesores/profesor-luis.html" class="btn btn-primary-custom btn-sm w-100 mb-2">Puedes Reservar una clase aquí</a>
                                 <a href="#" class="text-muted small">Ver Horarios</a>
                             </div>
 
@@ -218,7 +240,7 @@
                         <div class="card-content">
                             <!-- Foto Profesor -->
                             <div class="professor-header">
-                                <img src="https://via.placeholder.com/80x80?text=Maria" alt="Maria.R" class="professor-photo">
+                                <img src="../img/docente2.jpg" alt="Maria.R" class="professor-photo">
                                 <div class="professor-name-info">
                                     <h5>Maria.R <span class="flag">🇪🇨</span></h5>
                                     <p class="nationality">Español</p>
@@ -245,7 +267,7 @@
 
                             <!-- Botones -->
                             <div class="card-actions">
-                                <a href="reservas.html" class="btn btn-primary-custom btn-sm w-100 mb-2">Puedes Reservar una clase aquí</a>
+                                <a href="infoprofesores/profesor-maria.html" class="btn btn-primary-custom btn-sm w-100 mb-2">Puedes Reservar una clase aquí</a>
                                 <a href="#" class="text-muted small">Ver Horarios</a>
                             </div>
 
@@ -270,7 +292,7 @@
                         <div class="card-content">
                             <!-- Foto Profesor -->
                             <div class="professor-header">
-                                <img src="https://via.placeholder.com/80x80?text=Carlos" alt="Carlos.P" class="professor-photo">
+                                <img src="../img/docente3.jpg" alt="Carlos.P" class="professor-photo">
                                 <div class="professor-name-info">
                                     <h5>Carlos.P <span class="flag">🇲🇽</span></h5>
                                     <p class="nationality">Español</p>
@@ -297,13 +319,13 @@
 
                             <!-- Botones -->
                             <div class="card-actions">
-                                <a href="reservas.html" class="btn btn-primary-custom btn-sm w-100 mb-2">Puedes Reservar una clase aquí</a>
+                                <a href="infoprofesores/profesor-carlos.html" class="btn btn-primary-custom btn-sm w-100 mb-2">Puedes Reservar una clase aquí</a>
                                 <a href="#" class="text-muted small">Ver Horarios</a>
                             </div>
 
                             <!-- Contacto -->
                             <div class="contact-footer">
-                                <img src="https://via.placeholder.com/50x50?text=C" alt="Carlos" class="contact-photo">
+                                <img src="../img/docente3.jpg" alt="Carlos" class="contact-photo">
                                 <button class="btn btn-outline-secondary btn-sm w-100">Mandar mensaje</button>
                             </div>
 
@@ -319,6 +341,9 @@
         </div>
     </section>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.5/signalr.min.js" integrity="sha512-/rK7qzK4VhQv..." crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="../archivosjs/notificaciones.js"></script>
+    <script src="../archivosjs/tienda-loader.js"></script>
     <script src="tienda.js"></script>
 </body>
 </html>

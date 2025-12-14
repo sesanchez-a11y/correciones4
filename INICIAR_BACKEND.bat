@@ -1,7 +1,7 @@
 @echo off
 REM Script para iniciar el backend de EduMentor
 
-cd /d "c:\tareas\PROYECTO SOFTWARE2\TutoriasDeClasesbackend"
+cd /d "..\TutoriasDeClasesbackend"
 
 echo.
 echo ===============================================

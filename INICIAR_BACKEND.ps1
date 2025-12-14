@@ -11,7 +11,7 @@ param(
 )
 
 # Configurar ubicaciones
-$projectPath = "c:\tareas\PROYECTO SOFTWARE2\TutoriasDeClasesbackend"
+$projectPath = "..\TutoriasDeClasesbackend"
 $backend = "TutoriasDeClasesbackend"
 
 Write-Host ""

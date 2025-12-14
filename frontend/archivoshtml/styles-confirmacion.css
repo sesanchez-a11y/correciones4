@@ -1,0 +1,18 @@
+/* Estilos personalizados para confirpago.html */
+
+/* Cambiar el color amarillo de la barra de navegación */
+.bg-warning {
+    background-color: #F5BE6B !important;
+}
+
+/* Cambiar el color amarillo del botón */
+.btn-warning {
+    background-color: #F5BE6B !important;
+    border-color: #F5BE6B !important;
+}
+
+/* Hover para el botón */
+.btn-warning:hover {
+    background-color: #e6a85e !important; /* Un tono más oscuro para hover */
+    border-color: #e6a85e !important;
+}

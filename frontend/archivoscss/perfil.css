@@ -3,7 +3,7 @@
 /* Variables y colores compartidas desde tienda.css */
 :root {
   --primary: #1264b6;
-  --warning: #ffc107;
+  --warning: #F5BE6B;
   --text-dark: #212529;
   --bg-light: #f4f6f9;
 }
@@ -13,6 +13,10 @@
 /* Color amarillo para el panel lateral */
 .bg-yellow {
   background-color: var(--warning) !important;
+}
+
+.bg-custom {
+  background-color: #F5BE6B !important;
 }
 
 /* Estilos para el list-group del menú lateral (activo) */
@@ -66,6 +70,11 @@
   border-color: #0d4a8f;
 }
 
+.btn-custom {
+    background-color: #F5BE6B;
+    border-color: #F5BE6B;
+}
+
 .filter-section {
   background-color: #f8f9fa;
   border-radius: 8px;
@@ -78,6 +87,11 @@
 
 .table td {
   vertical-align: middle;
+}
+
+/* Navbar background color */
+.navbar {
+    background-color: #F5BE6B;
 }
 
 /* Responsive: En móvil, las columnas se apilan (100% de ancho) */

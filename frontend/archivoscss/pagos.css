@@ -20,6 +20,10 @@ body {
 }
 
 /* Menú de navegación */
+.navbar {
+    background-color: #F5BE6B;
+}
+
 .navbar-brand img {
     width: 64px;
     height: 46px;
@@ -64,8 +68,8 @@ body {
 }
 
 /* Color amarillo suave para el panel lateral */
-.bg-yellow {
-  background-color:#ffc107 !important;
+.bg-custom {
+  background-color: #F5BE6B !important;
 }
 
 /* Contenido principal */

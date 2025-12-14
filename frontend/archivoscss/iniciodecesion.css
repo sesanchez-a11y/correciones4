@@ -29,7 +29,7 @@
 }
 
 .role-buttons .btn.active {
-  background-color: #f5b700 !important;
+  background-color: #F5BE6B !important;
   color: #333 !important;
   border-color: #e0a000 !important;
 }
@@ -49,8 +49,8 @@
 }
 
 .form-control:focus {
-  border-color: #f5b700;
-  box-shadow: 0 0 0 3px rgba(245, 183, 0, 0.1);
+  border-color: #F5BE6B;
+  box-shadow: 0 0 0 3px rgba(245, 190, 107, 0.1);
 }
 
 .social-buttons .btn {
@@ -80,6 +80,18 @@
     transform: scale(1.1);
     background-color: #128C7E;
 }
+
+/* Navbar */
+.navbar {
+  background-color: #F5BE6B;
+}
+
+/* Botón de envío */
+.btn-warning {
+  background-color: #F5BE6B !important;
+  border-color: #F5BE6B !important;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .register-card {

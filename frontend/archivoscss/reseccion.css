@@ -23,7 +23,7 @@
 }
 
 .primary-login {
-  background-color: #f5b700 !important;
+  background-color: #F5BE6B !important;
   color: #333 !important;
   font-weight: bold;
   font-size: 1.1rem;
@@ -58,13 +58,18 @@
 .apple { color: #000; }
 
 .terms a {
-  color: #f5b700;
+  color: #F5BE6B;
   text-decoration: underline;
 }
 
 .terms a:hover {
   color: #e0a000;
 }
+
+.navbar {
+    background-color: #F5BE6B;
+}
+
 /* WhatsApp Icon */
 .whatsapp-icon {
     width: 60px;

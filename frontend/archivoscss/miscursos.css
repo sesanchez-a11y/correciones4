@@ -20,6 +20,10 @@ body {
 }
 
 /* Menú de navegación */
+.navbar {
+    background-color: #F5BE6B;
+}
+
 .navbar-brand img {
     width: 30px;
     height: 30px;
@@ -48,6 +52,10 @@ body {
     justify-content: space-between;
     overflow: hidden;
     height: 250px;
+}
+
+#courseCarousel {
+    background-color: #F5BE6B;
 }
 
 .carousel-text {
@@ -114,6 +122,18 @@ body {
     border-top: 1px solid #ccc;
     padding-top: 20px;
     margin-bottom: 30px;
+}
+
+.text-custom {
+    color: #F5BE6B;
+}
+
+.bg-custom {
+    background-color: #F5BE6B;
+}
+
+#searchButton {
+    background-color: #F5BE6B;
 }
 
 .rating-stars i {

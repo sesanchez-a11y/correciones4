@@ -19,6 +19,10 @@
 }
 
 /* Navbar amarilla */
+.navbar {
+    background-color: #F5BE6B;
+}
+
 .navbar-brand {
     font-weight: bold;
     color: #333;
@@ -174,7 +178,7 @@
     font-size: 1.1rem;
     font-weight: bold;
     border-radius: 5px;
-    background-color: #f5b700 !important;
+    background-color: #F5BE6B !important;
     color: #333 !important;
     border: none;
     transition: all 0.3s ease;

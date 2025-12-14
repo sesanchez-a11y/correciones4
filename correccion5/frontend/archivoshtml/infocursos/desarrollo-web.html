@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Desarrollo Web desde Cero - EduMentor</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome para íconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Estilos personalizados -->
+  <link rel="stylesheet" href="../archivoscss/tienda.css" />
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="top-bar bg-dark text-white py-2 text-center">
+    <span>Contact us: 📞 +593 98 541 2458</span>
+    <span>✉️ capacitacion@tutorias.ec</span>
+    <span>🎓 Mas de 15.000 Profesionales Certificados</span>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-warning px-4">
+    <div class="container-fluid">
+      <a class="navbar-brand d-flex align-items-center" href="../../">
+        <img src="../../img/logo.png" alt="Logo EduMentor" width="64" height="46" class="me-2">
+        EduMentor
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="../inicio.html">INICIO</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../cursos.html">Mis Cursos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../reseccion.html">Iniciar sesión</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Contenido principal -->
+  <div class="container my-4">
+
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb" class="mb-3">
+      <ol class="breadcrumb small">
+        <li class="breadcrumb-item"><a href="../cursos.html" class="text-primary">Mis Cursos</a></li>
+        <li class="breadcrumb-item active">Desarrollo Web desde Cero</li>
+      </ol>
+    </nav>
+
+    <!-- Título del curso -->
+    <div class="mb-4">
+      <h1 class="h3 fw-bold">Desarrollo Web desde Cero</h1>
+      <p class="text-muted">Categoría: <span class="badge bg-primary">Programación / Web</span></p>
+    </div>
+
+    <div class="row">
+      <!-- Contenido principal (col-md-8) -->
+      <div class="col-md-8">
+        <!-- Descripción -->
+        <div class="card mb-4 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">Descripción del Curso</h5>
+            <p class="card-text">Curso intensivo para aprender a construir sitios web desde cero con HTML, CSS y JavaScript. Incluye proyectos prácticos y despliegue en producción. Perfecto para principiantes que desean convertirse en desarrolladores web full-stack.</p>
+            <p class="card-text small text-muted">Duración: 8 semanas | Nivel: Principiante | Certificado: Sí</p>
+          </div>
+        </div>
+
+        <!-- Temario -->
+        <div class="card mb-4 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">Temario del Curso</h5>
+            <ul class="list-unstyled">
+              <li class="mb-2"><i class="fas fa-check text-success"></i> <strong>Semana 1-2:</strong> Fundamentos de HTML5 y accesibilidad web</li>
+              <li class="mb-2"><i class="fas fa-check text-success"></i> <strong>Semana 3-4:</strong> CSS3: diseño, responsive design y flexbox/grid</li>
+              <li class="mb-2"><i class="fas fa-check text-success"></i> <strong>Semana 5-6:</strong> JavaScript básico, DOM y eventos</li>
+              <li class="mb-2"><i class="fas fa-check text-success"></i> <strong>Semana 7-8:</strong> Proyecto final: crear landing page + formulario interactivo</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Requisitos -->
+        <div class="card mb-4 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">Requisitos</h5>
+            <ul class="list-unstyled">
+              <li><i class="fas fa-check text-info"></i> Conocimientos básicos de computación</li>
+              <li><i class="fas fa-check text-info"></i> Acceso a una computadora con conexión a internet</li>
+              <li><i class="fas fa-check text-info"></i> Editor de código (VS Code recomendado)</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Botón de acción -->
+        <a href="../cursos.html" class="btn btn-primary btn-lg w-100 mb-3">
+          <i class="fas fa-arrow-left"></i> Volver a Mis Cursos
+        </a>
+      </div>
+
+      <!-- Sidebar (col-md-4) -->
+      <div class="col-md-4">
+        <!-- Tarjeta del Docente -->
+        <div class="card shadow-sm mb-4 border-primary">
+          <div class="card-header bg-primary text-white">
+            <h5 class="mb-0">Información del Docente</h5>
+          </div>
+          <div class="card-body text-center">
+            <img src="https://via.placeholder.com/120x120?text=Carlos" alt="Carlos DeMatte" class="rounded-circle mb-3" style="width: 120px; height: 120px;">
+            <h6 class="fw-bold mb-1">Carlos DeMatte</h6>
+            <div class="mb-3">
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star-half-alt text-warning"></i>
+              <span class="small ms-1 d-block">4.5/5 (120 reseñas)</span>
+            </div>
+            <p class="small text-muted mb-3">Desarrollador Fullstack con 10+ años de experiencia en tecnologías web modernas.</p>
+            
+            <hr>
+            
+            <div class="text-start">
+              <p class="small mb-2"><i class="fas fa-phone text-primary"></i> <a href="tel:+593985412458" class="text-decoration-none">+593 98 541 2458</a></p>
+              <p class="small mb-3"><i class="fas fa-envelope text-primary"></i> <a href="mailto:capacitacion@tutorias.ec" class="text-decoration-none">capacitacion@tutorias.ec</a></p>
+              <p class="small text-success fw-bold mb-0"><i class="fas fa-certificate"></i> ✓ Más de 15,000 Profesionales Certificados</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Información del Curso -->
+        <div class="card shadow-sm">
+          <div class="card-header bg-warning">
+            <h5 class="mb-0">Detalles del Curso</h5>
+          </div>
+          <div class="card-body small">
+            <p class="mb-2"><strong>Duración:</strong> 8 semanas</p>
+            <p class="mb-2"><strong>Nivel:</strong> <span class="badge bg-info">Principiante</span></p>
+            <p class="mb-2"><strong>Estudiantes:</strong> 2,450+</p>
+            <p class="mb-2"><strong>Certificado:</strong> <span class="badge bg-success">Sí</span></p>
+            <p class="mb-0"><strong>Precio:</strong> <span class="text-primary fw-bold">$49.99</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer (opcional) -->
+  <footer class="bg-dark text-white py-4 mt-5">
+    <div class="container text-center">
+      <p class="mb-0">&copy; 2025 EduMentor. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

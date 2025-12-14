@@ -1,0 +1,107 @@
+@startuml EduMentor_CasosDeUso
+title EduMentor - Casos de Uso del Sistema
+
+actor "Visitante\nNo Registrado" as VISITANTE
+actor "Estudiante" as ESTUDIANTE
+actor "Tutor" as TUTOR
+actor "Admin" as ADMIN
+
+package "Sistema EduMentor" {
+    usecase "Registrarse" as UC1
+    usecase "Iniciar Sesión" as UC2
+    usecase "Ver Perfil" as UC3
+    usecase "Cerrar Sesión" as UC4
+    usecase "Editar Perfil" as UC5
+    usecase "Ver Tutores Disponibles" as UC6
+    usecase "Buscar Tutorías" as UC7
+    usecase "Reservar Tutoría" as UC8
+    usecase "Cancelar Reserva" as UC9
+    usecase "Procesar Pago" as UC10
+    usecase "Ver Historial de Clases" as UC11
+    usecase "Calificar Tutoría" as UC12
+    usecase "Ver Estudiantes" as UC13
+    usecase "Crear Disponibilidad" as UC14
+    usecase "Aceptar/Rechazar Reserva" as UC15
+    usecase "Recibir Notificación" as UC16
+    usecase "Ver Estadísticas" as UC17
+    usecase "Gestionar Usuarios" as UC18
+    usecase "Monitorear Pagos" as UC19
+}
+
+' Relaciones Visitante
+VISITANTE --> UC1 : desea
+VISITANTE --> UC2 : desea
+VISITANTE --> UC6 : desea
+
+' Relaciones Estudiante
+ESTUDIANTE --> UC2 : autentica
+ESTUDIANTE --> UC3 : consulta
+ESTUDIANTE --> UC5 : modifica
+ESTUDIANTE --> UC6 : busca
+ESTUDIANTE --> UC7 : filtra
+ESTUDIANTE --> UC8 : realiza
+ESTUDIANTE --> UC9 : cancela
+ESTUDIANTE --> UC10 : paga
+ESTUDIANTE --> UC11 : revisa
+ESTUDIANTE --> UC12 : evalúa
+ESTUDIANTE --> UC16 : recibe
+ESTUDIANTE --> UC4 : termina
+
+' Relaciones Tutor
+TUTOR --> UC2 : autentica
+TUTOR --> UC3 : consulta
+TUTOR --> UC5 : modifica
+TUTOR --> UC13 : gestiona
+TUTOR --> UC14 : configura
+TUTOR --> UC15 : resuelve
+TUTOR --> UC11 : revisa
+TUTOR --> UC16 : recibe
+TUTOR --> UC4 : termina
+
+' Relaciones Admin
+ADMIN --> UC17 : analiza
+ADMIN --> UC18 : administra
+ADMIN --> UC19 : supervisa
+
+' Extensiones y Inclusiones
+UC8 .> UC10 : <<include>>
+UC10 .> UC16 : <<include>>
+UC8 .> UC16 : <<include>>
+UC15 .> UC16 : <<include>>
+UC1 .> UC2 : <<extend>>
+UC3 .> UC5 : <<extend>>
+UC11 .> UC12 : <<extend>>
+
+' Notas
+note right of UC1
+  **Actores**: Visitante
+  **Precondición**: Visitante sin cuenta
+  **Flujo**: 
+  1. Ingresa datos de registro
+  2. Selecciona rol (Estudiante/Tutor)
+  3. Sistema valida y crea usuario
+  4. Muestra confirmación
+end note
+
+note right of UC8
+  **Actores**: Estudiante
+  **Precondición**: Autenticado, seleccionó tutoría
+  **Flujo**:
+  1. Selecciona fecha y hora
+  2. Ingresa tarjeta de crédito
+  3. Sistema procesa pago
+  4. Confirma reserva
+  5. Envía notificación a tutor
+end note
+
+note right of UC15
+  **Actores**: Tutor
+  **Precondición**: Tiene reservas pendientes
+  **Flujo**:
+  1. Revisa solicitud de estudiante
+  2. Acepta o rechaza
+  3. Sistema notifica al estudiante
+  4. Actualiza disponibilidad
+end note
+
+@enduml

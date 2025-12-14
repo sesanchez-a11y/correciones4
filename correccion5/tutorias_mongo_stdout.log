@@ -1,0 +1,77 @@
+✓ Usando MongoUsuarioRepository (DB=EduMentor) -> mongodb://localhost:27017
+info: Microsoft.Hosting.Lifetime[14]
+      Now listening on: http://localhost:5000
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Production
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: C:\tareas\PROYECTO SOFTWARE2\TutoriasDeClases
+[Request] 2025-12-01T21:30:48.5671744Z GET /api/debug/userByEmail
+[Response] 2025-12-01T21:30:48.6440970Z 200
+[Request] 2025-12-01T21:35:49.1252041Z POST /api/ControladorDeSesion/login
+✓ ControladorDeSesion inicializado. Repositorio: MongoUsuarioRepository
+[Response] 2025-12-01T21:35:49.4957312Z 200
+[Request] 2025-12-01T21:35:54.5728841Z POST /api/ControladorDeSesion/login
+✓ ControladorDeSesion inicializado. Repositorio: MongoUsuarioRepository
+[Response] 2025-12-01T21:35:54.5793789Z 401
+[Request] 2025-12-01T21:36:02.2701066Z POST /api/ControladorDeSesion/login
+✓ ControladorDeSesion inicializado. Repositorio: MongoUsuarioRepository
+[Response] 2025-12-01T21:36:02.3743459Z 200
+[Request] 2025-12-01T21:41:51.6304135Z POST /api/ControladorDeSesion/register
+✓ ControladorDeSesion inicializado. Repositorio: MongoUsuarioRepository
+[Response] 2025-12-01T21:41:51.7945987Z 200
+[Request] 2025-12-01T21:41:56.4857910Z POST /api/ControladorDeSesion/login
+✓ ControladorDeSesion inicializado. Repositorio: MongoUsuarioRepository
+[Response] 2025-12-01T21:41:56.6033162Z 200
+[Request] 2025-12-01T21:42:12.6236054Z POST /api/ControladorDeSesion/login
+✓ ControladorDeSesion inicializado. Repositorio: MongoUsuarioRepository
+[Response] 2025-12-01T21:42:12.7317499Z 200
+[Request] 2025-12-01T21:42:24.4218576Z POST /api/ControladorDeSesion/login
+✓ ControladorDeSesion inicializado. Repositorio: MongoUsuarioRepository
+[Response] 2025-12-01T21:42:24.5291379Z 200
+[Request] 2025-12-01T21:46:19.5021908Z POST /api/ControladorDeSesion/login
+✓ ControladorDeSesion inicializado. Repositorio: MongoUsuarioRepository
+[Response] 2025-12-01T21:46:19.5039205Z 401
+[Request] 2025-12-01T21:46:35.1257184Z POST /api/ControladorDeSesion/login
+✓ ControladorDeSesion inicializado. Repositorio: MongoUsuarioRepository
+[Response] 2025-12-01T21:46:35.2291937Z 200
+[Request] 2025-12-01T21:47:08.4019805Z GET /api/ControladorDeSesion/me
+✓ ControladorDeSesion inicializado. Repositorio: MongoUsuarioRepository
+[Response] 2025-12-01T21:47:08.4096795Z 200
+[Request] 2025-12-01T21:47:30.7963525Z POST /api/ControladorDeSesion/login
+✓ ControladorDeSesion inicializado. Repositorio: MongoUsuarioRepository
+[Response] 2025-12-01T21:47:30.8990782Z 200
+[Request] 2025-12-01T21:48:16.5323022Z POST /api/ControladorDeSesion/login
+✓ ControladorDeSesion inicializado. Repositorio: MongoUsuarioRepository
+[Response] 2025-12-01T21:48:16.6357123Z 200
+[Request] 2025-12-01T21:48:23.0437787Z POST /api/ControladorDeSesion/login
+✓ ControladorDeSesion inicializado. Repositorio: MongoUsuarioRepository
+[Response] 2025-12-01T21:48:23.1485417Z 200
+[Request] 2025-12-01T21:48:29.7420851Z POST /api/ControladorDeSesion/login
+✓ ControladorDeSesion inicializado. Repositorio: MongoUsuarioRepository
+[Response] 2025-12-01T21:48:29.8498429Z 200
+[Request] 2025-12-01T21:50:50.3323065Z POST /api/ControladorDeSesion/login
+✓ ControladorDeSesion inicializado. Repositorio: MongoUsuarioRepository
+[Response] 2025-12-01T21:50:50.4361123Z 200
+[Request] 2025-12-01T21:52:07.9421297Z POST /api/ControladorDeSesion/register
+✓ ControladorDeSesion inicializado. Repositorio: MongoUsuarioRepository
+[Response] 2025-12-01T21:52:08.0484505Z 200
+[Request] 2025-12-01T21:52:08.0558716Z POST /api/ControladorDeSesion/login
+✓ ControladorDeSesion inicializado. Repositorio: MongoUsuarioRepository
+[Response] 2025-12-01T21:52:08.1597796Z 200
+[Request] 2025-12-01T21:52:24.6620889Z POST /api/ControladorDeSesion/login
+✓ ControladorDeSesion inicializado. Repositorio: MongoUsuarioRepository
+[Response] 2025-12-01T21:52:24.7674486Z 200
+[Request] 2025-12-01T21:54:49.5051544Z POST /api/ControladorDeSesion/login
+✓ ControladorDeSesion inicializado. Repositorio: MongoUsuarioRepository
+[Response] 2025-12-01T21:54:49.6045867Z 200
+[Request] 2025-12-01T21:55:02.3439188Z GET /api/ControladorDeSesion/me
+✓ ControladorDeSesion inicializado. Repositorio: MongoUsuarioRepository
+[Response] 2025-12-01T21:55:02.3462721Z 200
+[Request] 2025-12-01T21:57:01.7554293Z POST /api/ControladorDeSesion/login
+✓ ControladorDeSesion inicializado. Repositorio: MongoUsuarioRepository
+[Response] 2025-12-01T21:57:01.8566749Z 200
+[Request] 2025-12-01T21:57:10.2950572Z POST /api/ControladorDeSesion/login
+✓ ControladorDeSesion inicializado. Repositorio: MongoUsuarioRepository
+[Response] 2025-12-01T21:57:10.3960125Z 200

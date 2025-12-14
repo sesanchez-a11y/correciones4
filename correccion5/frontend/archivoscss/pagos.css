@@ -1,0 +1,137 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #fff;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* Barra superior negra */
+.top-bar span {
+    display: inline-block;
+    margin: 0 15px;
+    font-size: 13px;
+}
+
+/* Menú de navegación */
+.navbar-brand img {
+    width: 64px;
+    height: 46px;
+}
+
+.nav-link.active {
+    border-bottom: 2px solid #333;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+/* Botón hamburguesa personalizado */
+.navbar-toggler-custom {
+  background-color: #e6f2ff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.navbar-toggler-custom:hover {
+  background-color: #cce5ff;
+}
+
+.hamburger-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 20px;
+  height: 16px;
+}
+
+.hamburger-icon span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #0056b3;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Color amarillo suave para el panel lateral */
+.bg-yellow {
+  background-color:#ffc107 !important;
+}
+
+/* Contenido principal */
+.container.my-4 {
+    max-width: 1400px;
+}
+
+/* Formulario de pago */
+.payment-methods {
+    background-color: #fff;
+    border: 1px solid #fff;
+    border-radius: 8px;
+}
+
+.payment-methods .form-check-label {
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.payment-methods .form-check-input:checked ~ .form-check-label {
+    color: #007bff;
+}
+
+/* Resumen del pedido */
+.card {
+    border: none;
+    border-radius: 8px;
+}
+
+.card-body {
+    padding: 2rem;
+}
+
+.card-body h4 {
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+/* Botón de pago */
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    font-weight: bold;
+    padding: 16px 0;
+    font-size: 1.25rem;
+    border-radius: 50px;
+    box-shadow: 0 4px 16px rgba(0,123,255,0.10);
+    transition: background 0.2s, box-shadow 0.2s;
+    letter-spacing: 1px;
+}
+
+.btn-primary:hover, .btn-primary:focus {
+    background-color: #0056b3;
+    border-color: #0056b3;
+    box-shadow: 0 6px 24px rgba(0,86,179,0.18);
+    outline: none;
+}
+
+/* Icono WhatsApp fijo */
+.whatsapp-icon {
+    width: 50px;
+    height: 50px;
+    z-index: 100;
+}
+
+.whatsapp-icon i {
+    width: 24px;
+    height: 24px;
+}

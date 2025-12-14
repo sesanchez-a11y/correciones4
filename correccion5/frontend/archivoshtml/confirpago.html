@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>EduMentor - Confirmar Compra</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome para íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="styles-confirmacion.css" />
+</head>
+<body>
+
+    <!-- Barra superior negra -->
+    <div class="top-bar bg-dark text-white py-2 text-center">
+        <span>Contact us: 📞 +593 98 541 2458</span>
+        <span>✉️ capacitacion@tutorias.ec</span>
+        <span>🎓 Mas de 15.000 Profesionales Certificados</span>
+    </div>
+
+    <!-- Barra de navegación amarilla -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-warning px-4">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="inicio.html">
+                <img src="../img/logo.png" alt="Logo EduMentor" width="64" height="46" class="me-2">
+                EduMentor
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+             <!-- Botón de Notificaciones (Texto + Contador con dropdown) -->
+                <li class="nav-item me-3 dropdown">
+                    <a class="nav-link dropdown-toggle position-relative" href="#" id="notificacionesDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false" title="Notificaciones">
+                        NOTIFICACIONES
+                        <span id="notificationsNavBadge" class="position-absolute badge rounded-pill bg-danger d-none">0</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end shadow-lg" style="min-width: 350px;" aria-labelledby="notificacionesDropdown" id="notificacionesDropdownList">
+                        <li><div class="dropdown-item-text text-muted small">Cargando notificaciones...</div></li>
+                    </ul>
+                </li>
+                
+                <!-- Botón de DOCENTES (Texto + Contador) -->
+                <li class="nav-item me-4">
+                    <a class="nav-link position-relative active" href="./reservas.html" title="Tienda de Profesores">
+                        DOCENTES
+                        <!-- <span class="position-absolute badge rounded-pill bg-danger">1</span>-->
+                    </a>
+                </li>
+
+                <!-- Botón de Tienda (Texto + Contador) -->
+                <li class="nav-item me-4">
+                    <a class="nav-link position-relative" href="./tienda.html" title="Tienda de Profesores">
+                        Tienda
+                        <!--<span class="position-absolute badge rounded-pill bg-danger">1</span>-->
+                    </a>
+                </li>
+                
+                <!-- Menú desplegable "Perfil" (Icono + Texto) -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active ps-2 pe-3" href="#" id="perfilDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-user-circle me-1"></i> Perfil
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end shadow-lg" aria-labelledby="perfilDropdown">
+                        <li><a class="dropdown-item" href="perfil.html"><i class="fas fa-user-circle me-2"></i>Mi perfil</a></li>
+                        <li><a class="dropdown-item" href="miscursos.html"><i class="fas fa-book me-2"></i>Mis cursos</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i>Configuración</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item text-danger" href="#" id="logoutDropdownBtn"><i class="fas fa-sign-out-alt me-2"></i>Cerrar sesión</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Contenido principal -->
+    <div class="container my-4">
+
+        <div class="row g-4">
+            <!-- Columna izquierda: Información del curso y pago -->
+            <div class="col-md-6">
+                <h5 class="mb-3">Curso: <span id="confCurso">-</span></h5>
+
+                <!-- Imagen del curso -->
+                <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=800&fit=max" alt="Programación orientada a objetos" class="img-fluid mb-3" style="border-radius: 8px;">
+
+                <!-- Detalles del pago -->
+                <div class="mb-3">
+                    <strong>Docente:</strong> <span id="confDocente">-</span><br>
+                </div>
+
+                <div class="mb-3">
+                    <strong>Precio original:</strong> <span id="confPrecio">-</span>
+                </div>
+
+                <div class="mb-3">
+                    <strong>Descuento aplicado:</strong> <span id="confDescuento">-</span>
+                </div>
+            </div>
+
+            <!-- Columna derecha: Resumen del pedido -->
+            <div class="col-md-6">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h4 class="mb-4">Resumen del pedido</h4>
+
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>Precio Original</span>
+                            <span id="confPrecio2">-</span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-4">
+                            <span>Descuento</span>
+                            <span id="confDescuento2">-</span>
+                        </div>
+
+                        <hr>
+
+                        <div class="d-flex justify-content-between mb-4">
+                            <strong>Total (1 Curso)</strong>
+                            <strong id="confTotal">-</strong>
+                        </div>
+
+                        <!-- Botones -->
+                        <button class="btn btn-warning w-100 mb-3">Desea continuar la compra</button>
+                        <button class="btn btn-outline-secondary w-100 mb-3">Cancelar la compra</button>
+
+                        <!-- Garantía y términos -->
+                        <p class="small mt-3">
+                            Garantía de reembolso durante 15 días!<br>
+                            Esperamos que sigas comprando con nosotros por favor antes de su compra <a href="#" class="text-primary">Leer términos y condiciones</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Icono WhatsApp fijo -->
+    <a href="#" class="whatsapp-icon position-fixed bottom-0 end-0 m-3 d-flex align-items-center justify-content-center rounded-circle bg-success text-white shadow">
+        <i class="fab fa-whatsapp fa-lg"></i>
+    </a>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script-confirmacion.js"></script>
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!--perfil.html-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perfil - EduMentor</title>
+    <!-- Bootstrap CSS y Tailwind CDN (para utility classes) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome para íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Estilos globales y personalizados -->
+    <link rel="stylesheet" href="../archivoscss/tienda.css">
+    <link rel="stylesheet" href="../archivoscss/perfil.css">
+</head>
+<body>
+
+    <!-- Barra superior negra -->
+    <div class="top-bar bg-dark text-white py-2 text-center d-none d-md-block">
+        <span>Contact us: 📞 +593 98 541 2458</span>
+        <span>✉️ capacitacion@tutorias.ec</span>
+        <span>🎓 Mas de 15.000 Profesionales Certificados</span>
+    </div>
+
+    <!-- Barra de navegación amarilla -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-warning px-4 shadow-md">
+        <div class="container-fluid">
+            <!-- Lado izquierdo: Hamburguesa + Logo -->
+            <div class="d-flex align-items-center">
+                <!-- Botón hamburguesa personalizado para offcanvas -->
+                <button class="navbar-toggler-custom me-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarOffcanvas" aria-controls="sidebarOffcanvas" aria-label="Toggle navigation">
+                    <div class="hamburger-icon">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </button>
+
+                <a class="navbar-brand d-flex align-items-center" href="#">
+                    <!-- Usando placeholder de imagen en caso de que la ruta sea incorrecta -->
+                    <img src="../img/logo.png" onerror="this.onerror=null;this.src='https://placehold.co/64x46/FFC107/333?text=LOGO';" alt="Logo EduMentor" width="64" height="46" class="me-2">
+                    <span class="fw-bold">EduMentor</span>
+                </a>
+            </div>
+
+            <!-- Botón de colapso de menú principal (INICIO, TIENDA, AYUDA) -->
+            <button class="navbar-toggler ms-auto d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <!-- Lado derecho: Botones de Utilidad y Perfil (SIEMPRE VISIBLES - FUERA DEL COLLAPSE) -->
+            <ul class="navbar-nav utility-links d-flex flex-row align-items-center d-none d-lg-flex ms-auto">
+                <!-- Botón de Búsqueda (Texto) -->
+                <li class="nav-item me-3">
+                    <a class="nav-link" href="#" title="Buscar">
+                        Buscar
+                    </a>
+                </li>
+                
+                <!-- Botón de Notificaciones (Texto + Contador con dropdown) -->
+                <li class="nav-item me-3 dropdown">
+                    <a class="nav-link dropdown-toggle position-relative" href="#" id="notificacionesDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false" title="Notificaciones">
+                        NOTIFICACIONES
+                        <span id="notificationsNavBadge" class="position-absolute badge rounded-pill bg-danger d-none">0</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end shadow-lg" style="min-width: 350px;" aria-labelledby="notificacionesDropdown" id="notificacionesDropdownList">
+                        <li><div class="dropdown-item-text text-muted small">Cargando notificaciones...</div></li>
+                    </ul>
+                </li>
+                
+                <!-- Botón de DOCENTES (Texto + Contador) -->
+                <li class="nav-item me-4">
+                    <a class="nav-link position-relative active" href="./reservas.html" title="Tienda de Profesores">
+                        DOCENTES
+                        <!-- <span class="position-absolute badge rounded-pill bg-danger">1</span>-->
+                    </a>
+                </li>
+
+                <!-- Botón de Tienda (Texto + Contador) -->
+                <li class="nav-item me-4">
+                    <a class="nav-link position-relative" href="./tienda.html" title="Tienda de Profesores">
+                        Tienda
+                        <!--<span class="position-absolute badge rounded-pill bg-danger">1</span>-->
+                    </a>
+                </li>
+                
+                <!-- Menú desplegable "Perfil" (Icono + Texto) -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active ps-2 pe-3" href="#" id="perfilDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-user-circle me-1"></i> Perfil
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end shadow-lg" aria-labelledby="perfilDropdown">
+                        <li><a class="dropdown-item" href="perfil.html"><i class="fas fa-user-circle me-2"></i>Mi perfil</a></li>
+                        <li><a class="dropdown-item" href="miscursos.html"><i class="fas fa-book me-2"></i>Mis cursos</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i>Configuración</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item text-danger" href="#" id="logoutDropdownBtn"><i class="fas fa-sign-out-alt me-2"></i>Cerrar sesión</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+                <!-- Botones de Utilidad en Móvil (Se muestran aquí cuando el menú principal está colapsado) -->
+                <ul class="navbar-nav utility-links d-lg-none d-flex flex-column w-100 border-top pt-2">
+                    <!-- Botón de Búsqueda (Texto) -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" title="Buscar">Buscar</a>
+                    </li>
+                    
+                    <!-- Botón de Notificaciones (Texto + Contador) -->
+                    <li class="nav-item">
+                        <a class="nav-link position-relative" href="#" title="Notificaciones">
+                            Notificaciones
+                           <!-- <span class="position-absolute badge rounded-pill bg-danger">3</span>-->
+                        </a>
+                    </li>
+
+                    <!-- Botón de Tienda (Texto + Contador) -->
+                    <li class="nav-item">
+                        <a class="nav-link position-relative" href="./tienda.html" title="Tienda de Profesores">
+                            Tienda
+                           <!-- <span class="position-absolute badge rounded-pill bg-danger">1</span>-->
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Panel lateral (offcanvas) amarillo (Se mantiene para navegación secundaria) -->
+    <div class="offcanvas offcanvas-start bg-yellow shadow" tabindex="-1" id="sidebarOffcanvas" aria-labelledby="sidebarOffcanvasLabel" style="width: 280px; border-radius: 0 15px 15px 0;">
+        <div class="offcanvas-header border-bottom">
+            <h5 class="offcanvas-title fw-bold" id="sidebarOffcanvasLabel">Menú de Navegación</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body p-3 d-flex flex-column">
+            <!-- Lista de opciones con íconos -->
+            <div class="list-group list-group-flush mb-3 rounded-3 overflow-hidden" id="sidebarNavLinks">
+                <a href="#" class="list-group-item list-group-item-action bg-yellow d-flex align-items-center fw-medium" data-view="historial" id="historialBtn">
+                    <i class="fas fa-book-open me-3 text-dark"></i> Historial de compra
+                </a>
+                <a href="#" class="list-group-item list-group-item-action bg-yellow d-flex align-items-center fw-medium" data-view="cursos" id="clasesBtn">
+                    <i class="fas fa-chalkboard-teacher me-3 text-dark"></i> Mis cursos
+                </a>
+                <a href="#" class="list-group-item list-group-item-action bg-yellow d-flex align-items-center fw-medium" data-view="materiales" id="materialesBtn">
+                    <i class="fas fa-folder-open me-3 text-dark"></i> Materiales
+                </a>
+                <a href="#" class="list-group-item list-group-item-action bg-yellow d-flex align-items-center fw-medium" data-view="horarios" id="horariosBtn">
+                    <i class="far fa-clock me-3 text-dark"></i> Horarios
+                </a>
+                <!-- BOTÓN DE CREAR CURSO (Solo para Tutores) -->
+                <a href="#" class="list-group-item list-group-item-action bg-warning d-flex align-items-center fw-medium tutor-only" data-view="crearCurso" id="crearCursoBtn" style="display: none;">
+                    <i class="fas fa-plus-circle me-3 text-dark"></i> Crear Curso
+                </a>
+            </div>
+
+            <!-- Botón de cerrar sesión -->
+            <div class="mt-auto pt-3 border-top">
+                <button id="logoutBtn" class="btn btn-danger w-100 shadow">
+                    <i class="fas fa-sign-out-alt me-2"></i>Cerrar sesión
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contenido Principal: Perfil (Izquierda) y Contenido Dinámico (Derecha) -->
+    <main class="container-fluid main-content-area">
+        <!-- El 'row' y las columnas definen el layout de 2 columnas -->
+        <div class="row g-4">
+            <!-- Columna Izquierda: Perfil del Usuario (4/12 del ancho en pantallas medianas/grandes) -->
+            <div class="col-lg-4 col-md-4">
+                <div class="card p-4 shadow-lg rounded-lg h-full-card profile-card">
+                    <div class="text-center mb-4">
+                        <img id="userAvatarTable" 
+                            src="../img/default-avatar.png" 
+                            onerror="this.onerror=null;this.src='https://placehold.co/100x100/F0F8FF/0056b3?text=User';" 
+                            alt="Avatar del Usuario" class="avatar">
+                    </div>
+                    <h4 id="userNameTable" class="card-title text-center text-primary-custom fw-bold mb-1">Cargando...</h4>
+                    <p id="userRolTable" class="card-text text-muted text-center small mb-4">Cargando...</p>
+
+                    <div class="border-top pt-3 mt-3">
+                        <p class="card-text text-dark fw-bold mb-2"><i class="fas fa-info-circle me-2 text-warning"></i>Detalles de Contacto:</p>
+                        <p class="card-text text-muted small mb-2"><i class="fas fa-envelope me-2 text-primary-custom"></i><span id="userEmailTable">Cargando...</span></p>
+                        <p class="card-text text-muted small mb-3"><i class="fas fa-phone me-2 text-primary-custom"></i><span id="userPhoneTable">Cargando...</span></p>
+                        <button class="btn btn-warning w-100 mt-2 fw-bold shadow-sm">
+                            <i class="fas fa-edit me-2"></i>Actualizar Datos
+                        </button>
+
+                    <!-- Notificaciones del usuario -->
+                    <div class="mt-3">
+                        <h6 class="fw-bold">Notificaciones <span id="notificationsCount" class="badge bg-danger ms-2 d-none">0</span></h6>
+                        <div id="notificationsContainer" class="list-group list-group-flush mt-2">
+                            <!-- Notificaciones inyectadas por perfil.js -->
+                            <div class="text-muted small">No hay notificaciones.</div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Columna Derecha: Contenido Dinámico (Historial de compra / Mis Cursos / Materiales / Horarios) -->
+            <div class="col-lg-8 col-md-8">
+                <!-- Contenedor principal de la vista dinámica -->
+                <div id="dynamicContentContainer" class="bg-white p-4 shadow-lg rounded-lg h-full-card">
+                    <!-- El contenido se inyectará aquí -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Cargar el archivo perfil.js externo que contiene toda la lógica -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.5/signalr.min.js" integrity="sha512-/rK7qzK4VhQv..." crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="../archivosjs/perfil.js"></script>
+</body>
+</html>

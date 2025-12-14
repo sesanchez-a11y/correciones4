@@ -1,0 +1,12 @@
+{
+  "users": [
+    {
+      "id": "693b0b93ac7bacbb611d2b8a",
+      "nombre": "Administrador",
+      "apellido": "Sistema",
+      "correo": "admin@edumentor.local",
+      "rol": "Admin",
+      "fechaCreacion": "2025-12-11T18:21:07.008Z"
+    }
+  ]
+}

@@ -1,0 +1,408 @@
+/* ======================================
+   VARIABLES Y RESET
+   ====================================== */
+:root {
+    --primary: #1264b6;
+    --warning: #ffc107;
+    --text-dark: #212529;
+    --bg-light: #f4f6f9;
+    --bg-white: #ffffff;
+    --text-muted: #6c757d;
+    --text-light: #999;
+    --border-color: #dee2e6;
+    --border-light: #e9ecef;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ======================================
+   TOP BAR
+   ====================================== */
+.top-bar {
+    background-color: var(--text-dark);
+    padding: 8px 0;
+    font-size: 0.85rem;
+    color: white;
+}
+
+.top-bar i {
+    margin-right: 5px;
+    color: var(--warning);
+}
+
+/* ======================================
+   NAVBAR (Bootstrap)
+   ====================================== */
+.navbar {
+    background-color: var(--warning) !important;
+}
+
+.navbar-brand {
+    color: var(--text-dark) !important;
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+
+.navbar-nav .nav-link {
+    color: var(--text-dark) !important;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: var(--primary) !important;
+}
+
+.navbar-nav .nav-link.active {
+    color: var(--primary) !important;
+    border-bottom: 2px solid var(--primary);
+}
+
+/* ======================================
+   FILTERS SECTION
+   ====================================== */
+.filters-section {
+    background-color: var(--bg-white);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.form-label-sm {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--text-light);
+    margin-bottom: 5px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.form-select-sm {
+    padding: 0.4rem 0.5rem;
+    font-size: 0.85rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: var(--bg-white);
+}
+
+.sort-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    font-size: 0.9rem;
+}
+
+.sort-options a {
+    color: var(--text-dark);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.sort-options a:hover {
+    color: var(--primary);
+}
+
+.search-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-box i {
+    position: absolute;
+    left: 12px;
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 0.5rem 12px 0.5rem 35px;
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    font-size: 0.85rem;
+}
+
+/* ======================================
+   LISTINGS HEADER
+   ====================================== */
+.listings-header {
+    background-color: var(--bg-white);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.listings-header h2 {
+    font-size: 1.2rem;
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+/* ======================================
+   PROFESSOR GRID & CARDS
+   ====================================== */
+.professor-grid {
+    background-color: var(--bg-light);
+}
+
+.professor-card {
+    background-color: var(--bg-white);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-light);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    height: 100%;
+}
+
+.professor-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.card-content {
+    padding: 20px;
+}
+
+/* Professor Header (Name + Photo) */
+.professor-header {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.professor-photo {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary);
+    flex-shrink: 0;
+}
+
+.professor-name-info h5 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    font-weight: 700;
+}
+
+.flag {
+    margin-left: 5px;
+    font-size: 1rem;
+}
+
+.nationality {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--text-light);
+}
+
+/* Professor Meta */
+.professor-meta {
+    margin: 10px 0;
+}
+
+.professor-meta p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.professor-meta strong {
+    color: var(--text-dark);
+}
+
+/* Rating */
+.rating {
+    display: flex;
+    gap: 3px;
+    align-items: center;
+}
+
+.rating i {
+    font-size: 0.9rem;
+    color: var(--warning);
+}
+
+.rating .gold {
+    color: var(--warning);
+}
+
+/* Description */
+.description {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin: 10px 0;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Card Actions */
+.card-actions {
+    margin: 15px 0;
+}
+
+.btn-primary-custom {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    font-weight: 600;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.85rem;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary-custom:hover {
+    background-color: #0d4a8f;
+    color: white;
+}
+
+.card-actions a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 0.8rem;
+    transition: color 0.3s ease;
+}
+
+.card-actions a:hover {
+    color: var(--primary);
+}
+
+/* Contact Footer */
+.contact-footer {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin: 15px 0;
+    padding-top: 15px;
+    border-top: 1px solid var(--border-light);
+}
+
+.contact-photo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.btn-outline-secondary {
+    border: 1px solid var(--border-color);
+    color: var(--text-dark);
+    font-size: 0.8rem;
+    padding: 0.4rem 0.75rem;
+    flex: 1;
+}
+
+.btn-outline-secondary:hover {
+    background-color: var(--bg-light);
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+/* Price Tag */
+.price-tag {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: #f0f0f0;
+    padding: 10px 12px;
+    border-radius: 6px;
+    text-align: center;
+    border: 1px solid var(--border-light);
+}
+
+.price-value {
+    display: block;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.price-label {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--text-light);
+    margin-top: 2px;
+}
+
+/* ======================================
+   RESPONSIVE
+   ====================================== */
+@media (max-width: 768px) {
+    .sort-options {
+        margin-bottom: 15px;
+    }
+
+    .professor-card {
+        margin-top: 45px;
+    }
+
+    .price-tag {
+        position: static;
+        margin-top: 15px;
+        display: inline-block;
+    }
+}
+
+/* ======================================
+   REGLAS COMPARTIDAS (migradas desde inline <style> de tienda.html / perfil.html)
+   ====================================== */
+
+/* Ajuste para los badges de contador */
+.nav-item .badge {
+    font-size: 0.65rem;
+    padding: 3px 5px;
+    top: 0;
+    left: 80%; /* Ajuste la posición del badge respecto al texto */
+    transform: translate(0, -50%);
+}
+
+/* Botón hamburguesa personalizado */
+.navbar-toggler-custom {
+    background-color: #e6f2ff;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.hamburger-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 20px;
+    height: 16px;
+}
+
+.hamburger-icon span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #0056b3;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Mover utility-links más a la derecha */
+.utility-links {
+    margin-left: auto !important;
+}
+

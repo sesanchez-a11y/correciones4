@@ -1,0 +1,89 @@
+{
+  "cursos": [
+    {
+      "id": "693c81f98603e9636bca5e85",
+      "nombre": "Curso de Prueba",
+      "descripcion": "Desc",
+      "categoria": "Matematicas",
+      "precio": 10.5,
+      "nivel": "Basico",
+      "duracion": 10,
+      "capacidad": 20,
+      "temario": [
+        "Tema1",
+        "Tema2"
+      ],
+      "tutorId": "693b0b93ac7bacbb611d2b8a",
+      "tutorNombre": "Administrador Sistema",
+      "estado": "Pendiente",
+      "fechaCreacion": "2025-12-12T20:58:33.679Z",
+      "fechaAprobacion": null,
+      "estudiantes": [],
+      "calificacion": 0
+    },
+    {
+      "id": "693c82018603e9636bca5e86",
+      "nombre": "Curso de Prueba",
+      "descripcion": "Desc",
+      "categoria": "Matematicas",
+      "precio": 10.5,
+      "nivel": "Basico",
+      "duracion": 10,
+      "capacidad": 20,
+      "temario": [
+        "Tema1",
+        "Tema2"
+      ],
+      "tutorId": "693b0b93ac7bacbb611d2b8a",
+      "tutorNombre": "Administrador Sistema",
+      "estado": "Pendiente",
+      "fechaCreacion": "2025-12-12T20:58:41.716Z",
+      "fechaAprobacion": null,
+      "estudiantes": [],
+      "calificacion": 0
+    },
+    {
+      "id": "693c835a8603e9636bca5e88",
+      "nombre": "progrmacion1",
+      "descripcion": "carritos chocones",
+      "categoria": "Programación",
+      "precio": 14.58,
+      "nivel": "Intermedio",
+      "duracion": 12,
+      "capacidad": 23,
+      "temario": [
+        "c++",
+        "python",
+        "c#"
+      ],
+      "tutorId": "693c82aa8603e9636bca5e87",
+      "tutorNombre": "carlos partis",
+      "estado": "Pendiente",
+      "fechaCreacion": "2025-12-12T21:04:26.729Z",
+      "fechaAprobacion": null,
+      "estudiantes": [],
+      "calificacion": 0
+    },
+    {
+      "id": "693c847f8603e9636bca5e8a",
+      "nombre": "Curso E2E",
+      "descripcion": "Curso creado en E2E test",
+      "categoria": "Ciencias",
+      "precio": 5.0,
+      "nivel": "Intermedio",
+      "duracion": 5,
+      "capacidad": 15,
+      "temario": [
+        "T1",
+        "T2"
+      ],
+      "tutorId": "693c847e8603e9636bca5e89",
+      "tutorNombre": "TutorPrueba Uno",
+      "estado": "Pendiente",
+      "fechaCreacion": "2025-12-12T21:09:19.147Z",
+      "fechaAprobacion": null,
+      "estudiantes": [],
+      "calificacion": 0
+    }
+  ]
+}

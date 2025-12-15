@@ -28,7 +28,7 @@ if (-not (Test-Path $backendDir)) { Write-Warning "No se encontró el directorio
 }
 
 Write-Host "\n3) Iniciando servidor estático (Python http.server) en una nueva ventana de PowerShell..."
-$frontendDir = Join-Path $root 'frontend\archivoshtml'
+$frontendDir = Join-Path $root 'frontend/archivoshtml'
 if (-not (Test-Path $frontendDir)) { Write-Warning "No se encontró el directorio frontend: $frontendDir" } else {
     $psCommand2 = "cd '$frontendDir'; python -m http.server 5500"
     Start-Process -FilePath 'powershell.exe' -ArgumentList '-NoExit','-Command', $psCommand2 -WorkingDirectory $frontendDir

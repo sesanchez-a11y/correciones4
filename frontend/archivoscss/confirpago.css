@@ -52,8 +52,8 @@ body {
 
 /* Botones */
 .btn-warning {
-    background-color: #ffc107;
-    border-color: #ffc107;
+    background-color: #F5BE6B;
+    border-color: #F5BE6B;
     color: #212529;
     font-weight: bold;
     padding: 12px 0;
@@ -61,8 +61,8 @@ body {
 }
 
 .btn-warning:hover {
-    background-color: #e0a800;
-    border-color: #e0a800;
+    background-color: #F5BE6B;
+    border-color: #F5BE6B;
 }
 
 .btn-outline-secondary {

@@ -66,7 +66,7 @@ Cada página HTML debe cargar CSS en este orden **exacto**:
 ```css
 :root {
   --primary: #1264b6;      /* Azul corporativo */
-  --warning: #ffc107;      /* Amarillo navbar */
+  --warning: #F5BE6B;      /* Amarillo navbar */
   --secondary: #f8f9fa;
   --light: #e9ecef;
   --dark: #212529;

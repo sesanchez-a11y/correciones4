@@ -29,9 +29,9 @@
 }
 
 .role-buttons .btn.active {
-  background-color: #f5b700 !important;
+  background-color: #F5BE6B !important;
   color: #333 !important;
-  border-color: #e0a000 !important;
+  border-color: #F5BE6B !important;
 }
 
 #btn-tutor.active {
@@ -49,7 +49,7 @@
 }
 
 .form-control:focus {
-  border-color: #f5b700;
+  border-color: #F5BE6B;
   box-shadow: 0 0 0 3px rgba(245, 183, 0, 0.1);
 }
 

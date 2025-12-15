@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "O7z3MSV5cBo=",
+  "dgSpecHash": "81nvAJWTm+k=",
   "success": true,
-  "projectFilePath": "/Users/mike/Desktop/Edumentor/correciones4/correccion5/TutoriasDeClasesbackend/TutoriasDeClases.csproj",
+  "projectFilePath": "/Users/mike/Desktop/Edumentor/Edumentor-edu/backend/TutoriasDeClases.csproj",
   "expectedPackageFiles": [
     "/Users/mike/.nuget/packages/bcrypt.net-next/4.0.2/bcrypt.net-next.4.0.2.nupkg.sha512",
     "/Users/mike/.nuget/packages/dnsclient/1.6.1/dnsclient.1.6.1.nupkg.sha512",

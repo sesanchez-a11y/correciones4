@@ -34,7 +34,7 @@ El proyecto **EduMentor** (plataforma de tutoría online) ha alcanzado un **hito
 ### Fase 3: Diseño UI/UX
 | Objetivo | Acción | Resultado |
 |----------|--------|-----------|
-| Tienda mismatched design | Adaptar a paleta (#1264b6, #ffc107) | ✅ RESUELTO |
+| Tienda mismatched design | Adaptar a paleta (#1264b6, #F5BE6B) | ✅ RESUELTO |
 | Navbar inconsistente | Cambiar "Carrito" → "Tienda" | ✅ RESUELTO |
 | Botones utilitarios desalineados | Mover a derecha con CSS margin-left: auto | ✅ RESUELTO |
 
@@ -59,6 +59,70 @@ El proyecto **EduMentor** (plataforma de tutoría online) ha alcanzado un **hito
 
 ```
 ./
+├── README.md
+├── backend/                           # Backend ASP.NET Core
+│   ├── Controllers/
+│   │   ├── controladordesecion.cs
+│   │   ├── CursosController.cs
+│   │   ├── DebugController.cs
+│   │   └── ReservasController.cs
+│   ├── Factories/
+│   │   └── ReservaFactory.cs
+│   ├── Hubs/
+│   │   └── NotificationHub.cs
+│   ├── Interfaces/
+│   │   ├── ICursoRepository.cs
+│   │   ├── ICursoService.cs
+│   │   ├── INotificacion.cs
+│   │   ├── IPago.cs
+│   │   ├── IPrecioStrategy.cs
+│   │   └── IUsuarioRepository.cs
+│   ├── Modelos/
+│   │   ├── Alumno.cs
+│   │   ├── Curso.cs
+│   │   ├── Estudiante.cs
+│   │   ├── Notificacion.cs
+│   │   ├── Pago.cs
+│   │   ├── RegistroModel.cs
+│   │   ├── Reserva.cs
+│   │   ├── Servicio.cs
+│   │   ├── Tutor.cs
+│   │   └── Usuario.cs
+│   ├── Observers/
+│   │   ├── EmailNotificacion.cs
+│   │   └── SmsNotificacion.cs
+│   ├── Repositories/
+│   ├── Repositorios/
+│   │   └── CursoRepository.cs
+│   ├── Servicios/
+│   ├── Strategies/
+│   ├── appsettings.json
+│   ├── Program.cs
+│   ├── TutoriasDeClases.csproj
+│   └── TutoriasDeClases.sln
+├── docs/                              # Documentación completa
+│   ├── ARQUITECTURA.md
+│   ├── CAMBIOS_EXACTOS.md
+│   ├── COMPLETADO.md
+│   ├── DIAGRAMA_FLUJO_LOGIN.md
+│   ├── DOCUMENTACION_UML.md
+│   ├── ESTADO_FINAL.md
+│   ├── ESTADO_FINAL_v2.0.md
+│   ├── GUIA_FINAL.md
+│   ├── GUIA_PRUEBAS_ROLES_Y_CURSOS.md
+│   ├── GUIA_RAPIDA.md
+│   ├── GUIA_RAPIDA_PERFIL.md
+│   ├── GUIA_RAPIDA_UML.md
+│   ├── IMPLEMENTACION_ROLES_Y_CURSOS.md
+│   ├── INDICE_DOCUMENTACION.md
+│   ├── INSTRUCCIONES_INICIO.md
+│   ├── QUICK_START_ROLES.md
+│   ├── RESUMEN_DIAGRAMAS.md
+│   ├── RESUMEN_FINAL.md
+│   ├── SOLUCION_COMPLETADA.md
+│   ├── SOLUCION_IMPLEMENTADA.md
+│   ├── SOLUCION_PERFIL.md
+│   └── diagrams/
 ├── frontend/                          # Frontend unificado
 │   ├── archivoshtml/
 │   │   ├── inicio.html
@@ -81,30 +145,25 @@ El proyecto **EduMentor** (plataforma de tutoría online) ha alcanzado un **hito
 │   │   ├── perfil.js                 # ✅ Cargar datos + defensivas
 │   │   └── ...otros JS
 │   ├── diagnostico/                  # Testing pages
-│   ├── ARQUITECTURA.md               # 📚 Documentación técnica
-│   ├── GUIA_RAPIDA.md                # 📚 Guía para desarrolladores
+│   ├── img/
+│   ├── cursos.json
+│   ├── e2e_cursos_after.json
+│   ├── e2e_cursos_before.json
+│   ├── e2e_notify_courses.json
+│   ├── e2e_notify_users.json
+│   └── users.json
+├── k6-tests/                          # Load testing
+│   ├── load-test.js
 │   └── README.md
-│
-├── backend/                           # Backend ASP.NET Core
-│   ├── Program.cs                    # ✅ Configurado para servir frontend
-│   ├── Controllers/
-│   │   └── ControladorDeSesion.cs   # Login, Register, /me endpoints
-│   ├── Modelos/
-│   │   ├── Usuario.cs
-│   │   ├── Estudiante.cs
-│   │   ├── Tutor.cs
-│   │   ├── Reserva.cs
-│   │   └── ...
-│   ├── Interfaces/
-│   │   ├── INotificacion.cs
-│   │   ├── IPago.cs
-│   │   └── IPrecioStrategy.cs
-│   ├── Factories/
-│   ├── Observers/
-│   ├── Strategies/
-│   └── bin/Debug/net9.0/
-│
-└── tests/                             # Unit tests
+├── scripts/                           # Scripts de inicio
+│   ├── INICIAR_BACKEND.bat
+│   └── INICIAR_BACKEND.ps1
+├── tests/                             # Unit tests
+│   ├── ControladorDeSesionTests.cs
+│   ├── CursoServiceTests.cs
+│   ├── InMemoryUsuarioRepositoryTests.cs
+│   └── TutoriasDeClases.Tests.csproj
+└── start-all.ps1
 ```
 
 ---
@@ -298,6 +357,6 @@ El proyecto **EduMentor** (plataforma de tutoría online) ha alcanzado un **hito
 
 ---
 
-**Última actualización:** 7 de Diciembre de 2025, 16:30 UTC
+**Última actualización:** 15 de Diciembre de 2025, 12:00 UTC
 **Versión:** 1.0 BETA
 **Estado:** ✅ ESTABLE

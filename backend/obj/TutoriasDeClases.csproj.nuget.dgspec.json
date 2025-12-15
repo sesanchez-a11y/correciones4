@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/mike/Desktop/Edumentor/correciones4/correccion5/TutoriasDeClasesbackend/TutoriasDeClases.csproj": {}
+    "/Users/mike/Desktop/Edumentor/Edumentor-edu/backend/TutoriasDeClases.csproj": {}
   },
   "projects": {
-    "/Users/mike/Desktop/Edumentor/correciones4/correccion5/TutoriasDeClasesbackend/TutoriasDeClases.csproj": {
+    "/Users/mike/Desktop/Edumentor/Edumentor-edu/backend/TutoriasDeClases.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/mike/Desktop/Edumentor/correciones4/correccion5/TutoriasDeClasesbackend/TutoriasDeClases.csproj",
+        "projectUniqueName": "/Users/mike/Desktop/Edumentor/Edumentor-edu/backend/TutoriasDeClases.csproj",
         "projectName": "TutoriasDeClases",
-        "projectPath": "/Users/mike/Desktop/Edumentor/correciones4/correccion5/TutoriasDeClasesbackend/TutoriasDeClases.csproj",
+        "projectPath": "/Users/mike/Desktop/Edumentor/Edumentor-edu/backend/TutoriasDeClases.csproj",
         "packagesPath": "/Users/mike/.nuget/packages/",
-        "outputPath": "/Users/mike/Desktop/Edumentor/correciones4/correccion5/TutoriasDeClasesbackend/obj/",
+        "outputPath": "/Users/mike/Desktop/Edumentor/Edumentor-edu/backend/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/mike/.nuget/NuGet/NuGet.Config"

@@ -1,10 +1,10 @@
 # EduMentor - Plataforma de Tutorías Virtuales
 
-## 📋 Descripción General
+##  Descripción General
 
 EduMentor es una plataforma web de comercio electrónico especializada en tutorías y cursos en línea. El proyecto implementa una arquitectura de tres capas con autenticación JWT segura, gestión de usuarios con BCrypt, y un frontend responsivo.
 
-## 🏗️ Arquitectura
+##  Arquitectura
 
 ### Estructura de Capas
 
@@ -44,7 +44,7 @@ EduMentor es una plataforma web de comercio electrónico especializada en tutor�
 3. **Observer Pattern**: Usado en la clase `Reserva` para notificaciones
 4. **Strategy Pattern**: `IPrecioStrategy` para cálculo de precios
 
-## 🔐 Autenticación y Seguridad
+##  Autenticación y Seguridad
 
 ### Flujo de Autenticación
 
@@ -83,7 +83,7 @@ EduMentor es una plataforma web de comercio electrónico especializada en tutor�
 - **Hash Storage**: Se almacena solo el hash, nunca la contraseña original
 - **Validación**: Se usa `BCrypt.Verify()` para comparar al autenticar
 
-## 📦 Dependencias del Proyecto
+##  Dependencias del Proyecto
 
 ### Backend (TutoriasDeClases)
 - **Framwork**: ASP.NET Core 9.0
@@ -98,7 +98,7 @@ EduMentor es una plataforma web de comercio electrónico especializada en tutor�
 - **SDK**: Microsoft.NET.Test.Sdk 17.10.0
 - **Configuración**: Microsoft.Extensions.Configuration 8.0.0
 
-## 🚀 Cómo Ejecutar
+##  Cómo Ejecutar
 
 ### Requisitos
 - .NET 9 SDK instalado
@@ -131,7 +131,7 @@ EduMentor es una plataforma web de comercio electrónico especializada en tutor�
    dotnet test
    ```
 
-## 📚 Estructura del Proyecto
+##  Estructura del Proyecto
 
 ```
 c:\tareas\PROYECTO SOFTWARE2\
@@ -176,26 +176,26 @@ c:\tareas\PROYECTO SOFTWARE2\
 └── README.md                      # Este archivo
 ```
 
-## 🧪 Pruebas Unitarias
+## Pruebas Unitarias
 
 ### Cobertura Actual
 
-**Total de Tests**: 11 (100% pasadas ✅)
+**Total de Tests**: 11 (100% pasadas)
 
 #### InMemoryUsuarioRepository (7 tests)
-- ✅ `AddAsync_ShouldAddUserSuccessfully` - Agregar usuario correctamente
-- ✅ `FindByEmailAsync_ShouldReturnUserIfExists` - Buscar usuario existente
-- ✅ `FindByEmailAsync_ShouldReturnNullIfUserDoesNotExist` - Buscar usuario inexistente
-- ✅ `ValidateCredentialsAsync_ShouldReturnUserForValidCredentials` - Validar credenciales correctas
-- ✅ `ValidateCredentialsAsync_ShouldReturnNullForInvalidPassword` - Rechazar contraseña incorrecta
-- ✅ `ValidateCredentialsAsync_ShouldReturnNullForNonexistentUser` - Rechazar usuario inexistente
-- ✅ `AddAsync_ShouldHashPasswordAutomatically` - Hash automático de contraseñas
+- `AddAsync_ShouldAddUserSuccessfully` - Agregar usuario correctamente
+- `FindByEmailAsync_ShouldReturnUserIfExists` - Buscar usuario existente
+- `FindByEmailAsync_ShouldReturnNullIfUserDoesNotExist` - Buscar usuario inexistente
+- `ValidateCredentialsAsync_ShouldReturnUserForValidCredentials` - Validar credenciales correctas
+- `ValidateCredentialsAsync_ShouldReturnNullForInvalidPassword` - Rechazar contraseña incorrecta
+- `ValidateCredentialsAsync_ShouldReturnNullForNonexistentUser` - Rechazar usuario inexistente
+- `AddAsync_ShouldHashPasswordAutomatically` - Hash automático de contraseñas
 
 #### ControladorDeSesion (4 tests)
-- ✅ `Register_ShouldReturnOkWithUserData_WhenRegistrationSucceeds` - Registro exitoso
-- ✅ `Register_ShouldReturnConflict_WhenEmailAlreadyExists` - Rechazo de duplicados
-- ✅ `Login_ShouldReturnTokenAndUserData_WhenCredentialsAreValid` - Login con credenciales válidas
-- ✅ `Login_ShouldReturnUnauthorized_WhenCredentialsAreInvalid` - Rechazo de credenciales inválidas
+- `Register_ShouldReturnOkWithUserData_WhenRegistrationSucceeds` - Registro exitoso
+- `Register_ShouldReturnConflict_WhenEmailAlreadyExists` - Rechazo de duplicados
+- `Login_ShouldReturnTokenAndUserData_WhenCredentialsAreValid` - Login con credenciales válidas
+- `Login_ShouldReturnUnauthorized_WhenCredentialsAreInvalid` - Rechazo de credenciales inválidas
 
 ### Ejecutar Tests
 
@@ -211,7 +211,7 @@ dotnet test --filter "ControladorDeSesion"
 dotnet test /p:CollectCoverage=true
 ```
 
-## 🔌 Endpoints API
+##  Endpoints API
 
 ### Autenticación
 
@@ -255,7 +255,7 @@ curl -X GET http://localhost:5000/api/ControladorDeSesion/me \
   -H "Authorization: Bearer <JWT_TOKEN>"
 ```
 
-## 🗄️ Persistencia de Datos
+## Persistencia de Datos
 
 ### Opciones Disponibles
 
@@ -285,7 +285,7 @@ curl -X GET http://localhost:5000/api/ControladorDeSesion/me \
 
 2. Instalar MongoDB localmente o usar MongoDB Atlas (cloud)
 
-## 📝 Frontend
+## Frontend
 
 ### Estructura
 
@@ -309,7 +309,7 @@ curl -X GET http://localhost:5000/api/ControladorDeSesion/me \
    - Visualización de cursos disponibles
    - Opciones de reserva y compra
 
-## 🔄 Ciclo de Desarrollo
+## Ciclo de Desarrollo
 
 ### Flujo de Cambios
 
@@ -327,7 +327,7 @@ curl -X GET http://localhost:5000/api/ControladorDeSesion/me \
    - Usar MongoDB en lugar de InMemory
    - Cambiar claves JWT a valores seguros
 
-## 🔮 Mejoras Futuras
+## Mejoras Futuras
 
 1. **Persistencia**: Migrar MongoDB con limpeza de datos inconsistentes
 2. **Autenticación**: Implementar refresh tokens de larga duración
@@ -338,7 +338,7 @@ curl -X GET http://localhost:5000/api/ControladorDeSesion/me \
 7. **Testing**: Agregar tests de integración y E2E
 8. **API Docs**: Swagger/OpenAPI para documentación interactiva
 
-## 🐛 Problemas Conocidos y Soluciones
+##  Problemas Conocidos y Soluciones
 
 ### MongoDB con Datos Inconsistentes
 - **Problema**: La base de datos MongoDB tenía usuarios con esquema inconsistente

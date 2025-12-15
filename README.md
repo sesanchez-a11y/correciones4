@@ -354,19 +354,18 @@ curl -X GET http://localhost:5000/api/ControladorDeSesion/me \
 - **Configurado**: El backend permite CORS desde cualquier origen
 - **En producción**: Restringir a dominios específicos en `Program.cs`
 
-## 📞 Contacto y Soporte
+## Contacto y Soporte
 
-Para preguntas o problemas:
 1. Revisar esta documentación
 2. Consultar los tests en `TutoriasDeClases.Tests/`
 3. Verificar `Program.cs` para configuración de servicios
 
-## 📄 Licencia
+## Licencia
 
 Proyecto educativo - 2024
 
 ---
 
-**Última actualización**: Enero 2024  
+**Última actualización**: Enero 202 
 **Versión**: 1.0.0  
-**Estado**: ✅ Funcional (Tests 11/11 pasados)
+**Estado**: Funcional (Tests 11/11 pasados)
